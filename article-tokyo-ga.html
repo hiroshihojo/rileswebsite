@@ -8,90 +8,285 @@
     <link rel="shortcut icon" type="image/png" href="RILESCOMBIMARK.PNG">
     <link rel="stylesheet" href="styles.css" />
     <style>
-        /* Copy all the article styles from the template above */
-        /* (I'm omitting them here for brevity, but include them all) */
+        /* Article-specific styles */
+        .article-main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-home:hover {
+            color: #e63946;
+        }
+        
+        .full-article {
+            background: #fff;
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-category {
+            display: inline-block;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .article-meta {
+            color: #767676;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta span {
+            margin: 0 0.25rem;
+        }
+        
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content .intro {
+            font-size: 1.2rem;
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4a4a4a;
+            font-size: 1.2rem;
+        }
+        
+        .article-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .related-articles {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #1a1a1a;
+        }
+        
+        .related-articles h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .related-article {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .related-article:hover h4 {
+            color: #e63946;
+        }
+        
+        .related-article img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-article h4 {
+            font-size: 1rem;
+            margin: 0.5rem 0 0.25rem;
+            transition: color 0.2s;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-main {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Same header as template -->
-    <header class="main-header">...</header>
+
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#art-design">Art & Design</a></li>
+                    <li><a href="index.html#culture">Culture</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#music-film">Music & Film</a></li>
+                    <li><a href="index.html#gaming">Gaming</a></li>
+                    <li><a href="index.html#radar">Radar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-main">
+    <a href="index.html" class="back-to-home">← Back to Home</a>
     
-    <main class="article-main">
-        <a href="index.html" class="back-to-home">← Back to Home</a>
-        
-        <article class="full-article">
-            <header class="article-header">
-                <span class="article-category">Music & Film</span>
-                <h1>Tokyo‑Ga - The Contrast of Japan in the 80s</h1>
-                <div class="article-meta">
-                    <span>By Wim Wenders</span>
-                    <span>·</span>
-                    <span>February 18, 2026</span>
-                    <span>·</span>
-                    <span>6 min read</span>
-                </div>
-            </header>
-            
-            <img src="https://picsum.photos/1200/600?random=tokyo" alt="Tokyo scene from the 80s" class="article-hero-image">
-            
-            <div class="article-content">
-                <p class="intro"><strong>Wenders wanders a city racing forward, searching for Ozu's stillness. In 1980s Tokyo, the German director found a metropolis caught between tradition and hyper-modernity.</strong></p>
-                
-                <h2>The Search for Ozu's Tokyo</h2>
-                <p>When Wim Wenders traveled to Tokyo in the early 1980s, he wasn't just making a documentary about the city—he was searching for the ghost of Yasujirō Ozu, the master director whose films captured a Japan that was already fading. What he found was a city in frantic transformation...</p>
-                
-                <!-- Rest of article content -->
-                
-                <blockquote>
-                    "I had the feeling that Tokyo was racing forward so fast that it was leaving its own shadow behind."
-                </blockquote>
-                
-                <h2>A City of Contrasts</h2>
-                <p>The Tokyo Wenders captured on film was one of pachinko parlors next to ancient temples, businessmen in suits alongside teenagers in avant-garde fashion. It was this tension—between tradition and progress, stillness and motion—that made Tokyo‑Ga such a prescient work...</p>
+    <article class="full-article">
+        <header class="article-header">
+            <span class="article-category">Music & Film</span>
+            <h1>Tokyo‑Ga - The Contrast of Japan in the 80s</h1>
+            <div class="article-meta">
+                <span>By Wim Wenders</span>
+                <span>·</span>
+                <span>February 18, 2026</span>
+                <span>·</span>
+                <span>6 min read</span>
             </div>
-            
-            <footer class="article-footer">
-                <p><strong>Tags:</strong> <a href="#">Tokyo</a>, <a href="#">Wim Wenders</a>, <a href="#">Documentary</a>, <a href="#">1980s</a></p>
-                <p><strong>Share:</strong> 
-                    <a href="#">Twitter</a> | 
-                    <a href="#">Facebook</a> | 
-                    <a href="#">Email</a>
-                </p>
-            </footer>
-        </article>
+        </header>
         
-        <!-- Related articles section -->
-        <div class="related-articles">
-            <h3>More from Music & Film</h3>
-            <div class="related-grid">
-                <a href="article-mei-semones.html" class="related-article">
-                    <img src="https://picsum.photos/300/200?random=104" alt="Mei Semones">
-                    <h4>Mei Semones - Writing Between Languages</h4>
-                    <span class="meta">Feb 4, 2026</span>
-                </a>
-                <a href="article-f5ve.html" class="related-article">
-                    <img src="https://picsum.photos/300/200?random=105" alt="f5ve">
-                    <h4>The Creative Force Behind f5ve</h4>
-                    <span class="meta">Jan 28, 2026</span>
-                </a>
-                <a href="article-taroman.html" class="related-article">
-                    <img src="https://picsum.photos/300/200?random=106" alt="Taroman">
-                    <h4>Taroman - A Pure Homage to Tokusatsu</h4>
-                    <span class="meta">Jan 19, 2026</span>
-                </a>
-            </div>
+        <img src="https://picsum.photos/1200/600?random=tokyo" alt="Tokyo scene from the 80s" class="article-hero-image">
+        
+        <div class="article-content">
+            <p class="intro"><strong>Wenders wanders a city racing forward, searching for Ozu's stillness. In 1980s Tokyo, the German director found a metropolis caught between tradition and hyper-modernity.</strong></p>
+            
+            <h2>The Search for Ozu's Tokyo</h2>
+            <p>When Wim Wenders traveled to Tokyo in the early 1980s, he wasn't just making a documentary about the city—he was searching for the ghost of Yasujirō Ozu, the master director whose films captured a Japan that was already fading. What he found was a city in frantic transformation, one that seemed to have forgotten the quiet dignity Ozu immortalized on screen.</p>
+            
+            <p>Tokyo‑Ga (1985) takes its name from the Japanese word for "pictures of Tokyo," but it's less a traditional documentary than a poetic meditation on memory, loss, and the passage of time. Wenders arrives in Tokyo like a detective investigating a disappearance—the disappearance of a certain Japan that existed only in Ozu's films.</p>
+            
+            <blockquote>
+                "I had the feeling that Tokyo was racing forward so fast that it was leaving its own shadow behind."
+            </blockquote>
+            
+            <h2>A City of Contrasts</h2>
+            <p>The Tokyo Wenders captured on film was one of pachinko parlors next to ancient temples, businessmen in suits alongside teenagers in avant-garde fashion. It was this tension—between tradition and progress, stillness and motion—that made Tokyo‑Ga such a prescient work. The film anticipates our contemporary anxiety about cultural loss in the face of globalization.</p>
+            
+            <p>Wenders interviews Chishu Ryu, Ozu's longtime collaborator, and cinematographer Yuharu Atsuta, who speak of Ozu's meticulous methods—his famous low-angle shots, his refusal to move the camera, his insistence on capturing "the time between actions." These interviews are heartbreaking, as elderly men remember their friend while the city outside continues its relentless march toward the future.</p>
+            
+            <h2>Stillness in Motion</h2>
+            <p>What makes Tokyo‑Ga essential viewing even today is how it captures something intangible about Japan's relationship with its past. Wenders finds moments of unexpected poetry—a man making plastic food samples with obsessive care, factory workers going about their routines, a lone golfer practicing swings on a rooftop against the Tokyo skyline.</p>
+            
+            <p>In these moments, Wenders discovers what he came looking for: not Ozu's Tokyo, which is gone forever, but something more valuable—the persistence of the human gesture, the way people continue to find meaning in ritual and routine, even as the world transforms around them.</p>
         </div>
-    </main>
+        
+        <footer class="article-footer">
+            <p><strong>Tags:</strong> 
+                <a href="#">Tokyo</a>, 
+                <a href="#">Wim Wenders</a>, 
+                <a href="#">Documentary</a>, 
+                <a href="#">1980s</a>, 
+                <a href="#">Ozu</a>
+            </p>
+            <p><strong>Share:</strong> 
+                <a href="#">Twitter</a> | 
+                <a href="#">Facebook</a> | 
+                <a href="#">Email</a>
+            </p>
+        </footer>
+    </article>
     
-    <footer class="site-footer">
-        <p>© 2026 Riles Magazine. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.navbar').classList.toggle('active');
-        });
-    </script>
+    <!-- Related articles section -->
+    <div class="related-articles">
+        <h3>More from Music & Film</h3>
+        <div class="related-grid">
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=104" alt="Mei Semones">
+                <h4>Mei Semones - Writing Between Languages</h4>
+                <span class="meta">Feb 4, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=105" alt="f5ve">
+                <h4>The Creative Force Behind f5ve</h4>
+                <span class="meta">Jan 28, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=106" alt="Taroman">
+                <h4>Taroman - A Pure Homage to Tokusatsu</h4>
+                <span class="meta">Jan 19, 2026</span>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 Riles Magazine. All rights reserved.</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('active');
+    });
+</script>
 </body>
 </html>
