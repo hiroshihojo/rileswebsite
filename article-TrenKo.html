@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reject modernity, embrace tradition · Riles Magazine</title>
+    <link rel="icon" type="image/png" href="RILESCOMBIMARK.PNG">
+    <link rel="shortcut icon" type="image/png" href="RILESCOMBIMARK.PNG">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Article-specific styles - THESE WERE MISSING */
+        .article-main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-home:hover {
+            color: #e63946;
+        }
+        
+        .full-article {
+            background: #fff;
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-category {
+            display: inline-block;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .article-meta {
+            color: #767676;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta span {
+            margin: 0 0.25rem;
+        }
+        
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content .intro {
+            font-size: 1.2rem;
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4a4a4a;
+            font-size: 1.2rem;
+        }
+        
+        .article-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .related-articles {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #1a1a1a;
+        }
+        
+        .related-articles h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .related-article {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .related-article:hover h4 {
+            color: #e63946;
+        }
+        
+        .related-article img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-article h4 {
+            font-size: 1rem;
+            margin: 0.5rem 0 0.25rem;
+            transition: color 0.2s;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#art-design">Art & Design</a></li>
+                    <li><a href="index.html#culture">Culture</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#music-film">Music & Film</a></li>
+                    <li><a href="index.html#gaming">Gaming</a></li>
+                    <li><a href="index.html#radar">Radar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-main">
+    <a href="index.html" class="back-to-home">← Back to Home</a>
+    
+    <article class="full-article">
+        <header class="article-header">
+            <span class="article-category">Radar</span>
+            <h1>TrenKo, Metro Manila’s Real-Time Train Guide for Everyday Commuters</h1>
+            <div class="article-meta">
+                <span>By Hiroshi Hojo</span>
+                <span>·</span>
+                <span>January 28, 2026</span>
+                <span>·</span>
+                <span>5 min read</span>
+            </div>
+        </header>
+        
+        <img src="IMAGES\RADAR\HOJOJAN28.png" alt="TrenKo's in-app UI" class="article-hero-image">
+        
+        <div class="article-content">
+            <p class="intro"><strong>Enrico's daily struggles is exactly with riding the train si how TrenKo came to be.</strong></p>
+            
+            <h2>TrenKo's story</h2>
+            <p>Commuting by train in Metro Manila has rarely been a tranquil experience. Unfamiliar station names, announcements drowned out by noise, and—especially for first-time riders—the constant fear of missing a stop. That experience is exactly how TrenKo came to be. Developed by Enrico Miguel Velasquez, an industrial designer, TrenKo was born out of daily frustration. As a daily commuter, Enrico often found himself second-guessing where he was, which direction he was heading, and how many stations were left. Like many riders, he boarded the train just hoping he wouldn’t miss his stop. Those moments of stress eventually pushed Enrico to turn a personal problem into a practical solution. TrenKo is a smart train companion that automatically detects nearby stations, tracks your ride in real time, shows how many stops remain, and alerts you when and where to transfer. Designed for both first-time riders and seasoned commuters, the app aims to make train travel more intuitive and less stressful. Trenko paves way for encouraging train commute in the metro more, through ease of access; big steps into tackling the ever-growing volume of cars in the city. TrenKo is currently available on iOS, with an Android version planned for the future. Ongoing improvements are driven by real-world use and commuter feedback. At its core, what began as Enrico’s personal goal of building an app to solve his everyday commute has grown into a tool that supports a wider community of students, workers, and families navigating the same rails each day. You can check out Enrico’s work on Behance (https://www.behance.net/enricomcv) and download TrenKo now on the App Store.</p>
+            <P>I was able to have a short chat with Enrico, to ask him how he felt about the app and how it's been received by the public.</P>
+            <blockquote>
+                It was definitely surprising. When I first started creating the app, I was honestly just doing it for myself,  I wanted to see how many stops I had left while using my phone browsing Tiktok or Facebook xD. It didn’t immediately occur to me how useful it could be for others until I shared it with my friends for testing and they pointed out how helpful it was. Seeing so many people appreciate it and start sharing it made me really happy. Watching your hard work pay off, with a bit of luck along the way, really feels good.
+                I’m really glad people are starting to notice the UI, since that’s where I poured in extra effort. This project started as practice for me because I wanted to get into UI/UX design, and I found it much easier to work on something I was genuinely passionate about. I wanted the app to feel like something I would actually use and meet my own standards. So for a first try, I’m pretty happy with how it turned out
+            </blockquote>
+            
+
+        
+        <footer class="article-footer">
+            <p><strong>Tags:</strong> 
+                <a href="#">Filipiniana</a>, 
+                <a href="#">Fashion</a>, 
+                <a href="#">Tradition</a>, 
+                <a href="#">Philippines</a>,
+                <a href="#">Culture</a>
+            </p>
+            <p><strong>Share:</strong> 
+                <a href="#">Twitter</a> | 
+                <a href="#">Facebook</a> | 
+                <a href="#">Email</a>
+            </p>
+        </footer>
+    </article>
+    
+    <!-- Related articles section -->
+    <div class="related-articles">
+        <h3>More from Culture</h3>
+        <div class="related-grid">
+            <a href="article-tokyo-ga.html" class="related-article">
+                <img src="https://picsum.photos/300/200?random=tokyo" alt="Tokyo 1980s">
+                <h4>Tokyo‑Ga - The Contrast of Japan in the 80s</h4>
+                <span class="meta">Feb 18, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=105" alt="Philippine Textiles">
+                <h4>The Revival of Philippine Handwoven Textiles</h4>
+                <span class="meta">Jan 28, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=106" alt="Indigenous Patterns">
+                <h4>Indigenous Patterns in Modern Design</h4>
+                <span class="meta">Jan 19, 2026</span>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 Riles Magazine. All rights reserved.</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('active');
+    });
+</script>
+</body>
+</html>
