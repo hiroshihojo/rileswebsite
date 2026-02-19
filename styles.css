@@ -67,7 +67,7 @@ body {
 }
 
 .nav-menu a:hover {
-  color: #bfdb02;
+  color: #0432c7;
 }
 
 .dropdown {
@@ -152,7 +152,7 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #bfdb02;
+  color: #0432c7;
   font-weight: 600;
   display: inline-block;
   margin-bottom: 1rem;
@@ -185,7 +185,7 @@ body {
 
 .meta::before {
   content: "•";
-  color: #bfdb02;
+  color: #0432c7;
   font-weight: bold;
 }
 
@@ -322,7 +322,7 @@ body {
 }
 
 .category-list a:hover {
-  color: #bfdb02;
+  color: #0432c7;
   padding-left: 0.5rem;
 }
 
@@ -346,7 +346,7 @@ body {
 }
 
 .back-to-home:hover {
-  color: #bfdb02;
+  color: #0432c7;
 }
 
 .full-article {
@@ -369,7 +369,7 @@ body {
 
 .article-category {
   display: inline-block;
-  color: #bfdb02;
+  color: #0432c7;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
@@ -389,7 +389,7 @@ body {
 }
 
 .article-meta span:not(:first-child):not(:last-child) {
-  color: #bfdb02;
+  color: #0432c7;
   font-weight: bold;
 }
 
@@ -412,7 +412,7 @@ body {
 
 .article-content .intro {
   font-size: 1.3rem;
-  border-left: 4px solid #bfdb02;
+  border-left: 4px solid #0432c7;
   padding-left: 2rem;
   margin: 2rem 0 2.5rem;
   font-weight: 400;
@@ -437,7 +437,7 @@ body {
 }
 
 .article-content blockquote {
-  border-left: 4px solid #bfdb02;
+  border-left: 4px solid #0432c7;
   padding: 0.5rem 0 0.5rem 2rem;
   margin: 2.5rem 0;
   font-style: italic;
@@ -471,8 +471,8 @@ body {
 }
 
 .article-footer a:hover {
-  color: #bfdb02;
-  border-bottom-color: #bfdb02;
+  color: #0432c7;
+  border-bottom-color: #0432c7;
 }
 
 /* Related Articles */
@@ -506,7 +506,7 @@ body {
 }
 
 .related-article:hover h4 {
-  color: #bfdb02;
+  color: #0432c7;
 }
 
 .related-article img {
