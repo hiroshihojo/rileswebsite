@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brief · Riles Magazine</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* BRIEF PAGE STYLES */
+
+.brief-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.brief-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.brief-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #555;
+}
+
+.brief-section {
+    margin-bottom: 4rem;
+}
+
+.brief-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.brief-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.blue-accent {
+    color: #0432c7;
+    font-weight: 700;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.desktop-only {
+    display: block;
+}
+
+.mobile-warning {
+    display: none;
+    text-align: center;
+    padding: 4rem 1rem;
+    font-size: 1.2rem;
+}
+
+/* MOBILE BLOCK */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-warning {
+        display: block;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        </a>
+    </div>
+    <button class="menu-toggle">☰</button>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="brief.html">Brief</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- MOBILE MESSAGE -->
+<div class="mobile-warning">
+    <h2>OPEN ON DESKTOP</h2>
+    <p>This brief is designed for desktop viewing.</p>
+</div>
+
+<!-- DESKTOP CONTENT -->
+<div class="desktop-only">
+<div class="brief-container">
+
+    <h1 class="brief-title">RILES MAGAZINE</h1>
+    <p class="brief-subtitle">BRIEF</p>
+
+    <div class="brief-section">
+        <p class="highlight">
+            TO CREATE A LIVING ARCHIVE WHERE FILIPINO YOUTH BUILD A GRASP ON OUR OWN IDENTITY,
+            BY REALIZING THE RELEVANCE OF LOCAL ART, CULTURE, AND TALENT.
+        </p>
+
+        <p>
+            Our mission is to be the spotlight for Filipino creatives, stories, and stirs,
+            bringing content that forms what our youth are drawn to, while keeping the local
+            soul alive in a community shaped by global influences.
+        </p>
+    </div>
+
+    <div class="brief-section center-text">
+        <h2>ABOUT US</h2>
+        <p><strong>LIFE. STYLE. CULTURE.</strong></p>
+        <p>
+            Riles Magazine is a Filipino publication by the youth and for the youth.
+        </p>
+        <p>
+            There is currently no Filipino youth magazine that resonates with current news,
+            events, interests, and trends; and that aren’t too mainstream nor niche.
+            Riles Mag fills just the right spot between plain and
+            <em>if you know, you know.</em>
+        </p>
+    </div>
+
+    <div class="brief-section center-text">
+        <h2>IF YOU’RE READING THIS</h2>
+        <p>
+            Welcome to the community. This website will be archived after launch;
+            thank you for being here.
+        </p>
+        <p>Hope you enjoy this brief.</p>
+        <p><strong>THANK YOU.</strong></p>
+        <p>@RILESMAG</p>
+    </div>
+
+    <div class="brief-section">
+        <h2>WHAT IS THIS?</h2>
+        <p>
+            Some visual references that inspired the current logo.
+        </p>
+        <p>
+            Wordmarks are fine, but a character better represents the brand.
+        </p>
+        <p>
+            Two people approaching each other to dap up.
+            Super normal clothes. Round, friendly look.
+        </p>
+    </div>
+
+    <div class="brief-section">
+        <h2>IDENTITY EVOLUTION</h2>
+        <p>
+            Several design explorations were made before settling on a clear, bold,
+            unmistakable direction.
+        </p>
+        <p class="blue-accent">
+            #0249D7
+        </p>
+    </div>
+
+    <div class="brief-section">
+        <h2>FEATURES</h2>
+        <p><strong>Photography:</strong> Lierge Perey</p>
+        <p><strong>Art:</strong> Adriane Lina</p>
+        <p><strong>Fashion:</strong> FlyingKetchup.ph</p>
+        <p><strong>News:</strong> Kelvin Morales</p>
+    </div>
+
+</div>
+</div>
+
+<script>
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.navbar').classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
