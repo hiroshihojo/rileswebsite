@@ -37,6 +37,7 @@ body {
   height: 32px;
   width: auto;
   display: block;
+  align-items: center;
 }
 
 .menu-toggle {
@@ -46,7 +47,7 @@ body {
   border: none;
   cursor: pointer;
   line-height: 1;
-  color: #1a1a1a;
+  color: #ffffff;
 }
 
 .nav-menu {
@@ -58,7 +59,7 @@ body {
 
 .nav-menu a {
   text-decoration: none;
-  color: #1a1a1a;
+  color: #ffffff;
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.02em;
