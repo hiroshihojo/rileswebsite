@@ -25,9 +25,14 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 40px; /* Adjust this value based on your image's proportions */
+  width: auto;
+  display: block;
 }
 
 .menu-toggle {
@@ -335,6 +340,10 @@ body {
   .main-header {
       padding: 1rem;
       flex-wrap: wrap;
+  }
+
+  .logo-image {
+      height: 32px; /* Slightly smaller on mobile */
   }
 
   .menu-toggle {
