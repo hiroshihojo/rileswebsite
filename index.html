@@ -1,71 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Your Magazine</title>
-<link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Magazine</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
 <header class="main-header">
-  <div class="logo">YourMagazine</div>
-
-  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-
-  <nav class="navbar">
-    <ul class="nav-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Articles</a></li>
-      <li class="dropdown">
-        <a href="#">Categories</a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Art & Design</a></li>
-          <li><a href="#">Culture</a></li>
-          <li><a href="#">Fashion</a></li>
+    <div class="logo">YourMagazine</div>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Art & Design</a></li>
+                    <li><a href="#">Culture</a></li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Music & Film</a></li>
+                    <li><a href="#">Gaming</a></li>
+                    <li><a href="#">Society</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-  </nav>
+    </nav>
 </header>
 
-<section class="featured-article">
-  <img src="featured.jpg" alt="Featured">
-  <div class="featured-content">
-    <h1>Featured Story</h1>
-    <p>Short description of the featured article.</p>
-  </div>
-</section>
-
 <main class="content-wrapper">
-  <section class="articles-grid">
-    <article class="post-card">
-      <img src="post1.jpg" alt="">
-      <h2>Article Title</h2>
-      <p>Short excerpt of the article.</p>
-    </article>
+    <!-- Main Featured Area (Left Column) -->
+    <section class="featured-grid">
+        <!-- Primary Featured Post -->
+        <article class="featured-post primary">
+            <img src="https://picsum.photos/800/400?random=1" alt="Featured story about Japanese culture">
+            <div class="featured-content">
+                <span class="category-tag">Music & Film</span>
+                <h2>Tokyo‑Ga - The Contrast of Japan in the 80s</h2>
+                <p class="excerpt">Wenders wanders a city racing forward, searching for Ozu’s stillness.</p>
+                <p class="meta">Feb 18, 2026 · 6 min read</p>
+            </div>
+        </article>
 
-    <article class="post-card">
-      <img src="post2.jpg" alt="">
-      <h2>Another Article</h2>
-      <p>Short excerpt of the article.</p>
-    </article>
-  </section>
+        <!-- Secondary Featured Posts Grid -->
+        <div class="secondary-grid">
+            <article class="featured-post secondary">
+                <img src="https://picsum.photos/400/250?random=2" alt="Anime Goes Renaissance">
+                <div class="featured-content">
+                    <span class="category-tag">Art & Design</span>
+                    <h3>Anime Goes Renaissance - How Ricardo Paredes Reworks the Canon</h3>
+                    <p class="meta">Feb 15, 2026</p>
+                </div>
+            </article>
+            <article class="featured-post secondary">
+                <img src="https://picsum.photos/400/250?random=3" alt="Love Hotels">
+                <div class="featured-content">
+                    <span class="category-tag">Culture</span>
+                    <h3>Documenting Japan’s Most Peculiar Love Hotels</h3>
+                    <p class="meta">Feb 14, 2026</p>
+                </div>
+            </article>
+            <article class="featured-post secondary">
+                <img src="https://picsum.photos/400/250?random=4" alt="Mei Semones">
+                <div class="featured-content">
+                    <span class="category-tag">Music & Film</span>
+                    <h3>Mei Semones - Writing Between Languages</h3>
+                    <p class="meta">Feb 4, 2026</p>
+                </div>
+            </article>
+            <article class="featured-post secondary">
+                <img src="https://picsum.photos/400/250?random=5" alt="Gainax">
+                <div class="featured-content">
+                    <span class="category-tag">Manga & Anime</span>
+                    <h3>The Rise, Rupture, and Collapse of Gainax</h3>
+                    <p class="meta">Jan 7, 2026</p>
+                </div>
+            </article>
+        </div>
 
-  <aside class="sidebar">
-    <h3>Categories</h3>
-    <ul>
-      <li>Art</li>
-      <li>Culture</li>
-      <li>Fashion</li>
-    </ul>
-  </aside>
+        <!-- Category Sections (inspired by Yokogao Mag) -->
+        <section class="category-section">
+            <h2 class="section-title">Art & Design</h2>
+            <div class="category-grid">
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=6" alt="1-Bit Nostalgia">
+                    <h3>1-Bit Nostalgia - Super Kaylo Demakes Pop Culture Classics</h3>
+                    <p class="meta">Jan 26, 2026</p>
+                </article>
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=7" alt="Vaporwave Art">
+                    <h3>Japan as Interface - Vaporwave Art Culture of the 1990s</h3>
+                    <p class="meta">Jan 18, 2026</p>
+                </article>
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=8" alt="Yoshinao Satoh">
+                    <h3>Yoshinao Satoh's PAPERS - Collage Animation Before the Digital Age</h3>
+                    <p class="meta">Jan 6, 2026</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">Fashion</h2>
+            <div class="category-grid">
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=9" alt="STREET In London">
+                    <h3>STREET In London - When Harajuku's Icon Turned His Lens Overseas</h3>
+                    <p class="meta">Feb 1, 2026</p>
+                </article>
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=10" alt="Sabae Eyewear">
+                    <h3>A Visit to Sabae - Inside Japan's Eyewear Craft with 817 BLANC LNT</h3>
+                    <p class="meta">Jan 20, 2026</p>
+                </article>
+                <article class="category-post">
+                    <img src="https://picsum.photos/300/200?random=11" alt="EVISU Jeans">
+                    <h3>How EVISU Jeans Found 2000s Skate Culture</h3>
+                    <p class="meta">Jan 15, 2026</p>
+                </article>
+            </div>
+        </section>
+    </section>
+
+    <!-- Sidebar (Right Column) -->
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <ul class="category-list">
+                <li><a href="#">Art & Design</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Music & Film</a></li>
+                <li><a href="#">Manga & Anime</a></li>
+                <li><a href="#">Gaming</a></li>
+                <li><a href="#">Society</a></li>
+                <li><a href="#">Food</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>Creator Spotlight</h3>
+            <p>Follow a day in the life of Japanese creators</p>
+            <ul>
+                <li><a href="#">Yutaro Saito’s monthly fashion column</a></li>
+                <li><a href="#">Join a man who cleans Tokyo voluntarily</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="sidebar-widget newsletter">
+            <h3>Explore hidden gaps in Japanese culture</h3>
+            <p>Get your monthly dose of Japan delivered straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Address" required>
+                <button type="submit">Sign me up</button>
+            </form>
+            <p class="privacy-note">We respect your privacy. For more information check our privacy policy</p>
+        </div>
+    </aside>
 </main>
 
 <footer class="site-footer">
-  © 2026 YourMagazine
+    <p>© 2026 YourMagazine. All rights reserved.</p>
 </footer>
 
-<script src="scripts.js"></script>
+<script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('active');
+    });
+</script>
 </body>
 </html>
