@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Magazine</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="main-header">
+  <div class="logo">YourMagazine</div>
+
+  <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Articles</a></li>
+      <li class="dropdown">
+        <a href="#">Categories</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Art & Design</a></li>
+          <li><a href="#">Culture</a></li>
+          <li><a href="#">Fashion</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<section class="featured-article">
+  <img src="featured.jpg" alt="Featured">
+  <div class="featured-content">
+    <h1>Featured Story</h1>
+    <p>Short description of the featured article.</p>
+  </div>
+</section>
+
+<main class="content-wrapper">
+  <section class="articles-grid">
+    <article class="post-card">
+      <img src="post1.jpg" alt="">
+      <h2>Article Title</h2>
+      <p>Short excerpt of the article.</p>
+    </article>
+
+    <article class="post-card">
+      <img src="post2.jpg" alt="">
+      <h2>Another Article</h2>
+      <p>Short excerpt of the article.</p>
+    </article>
+  </section>
+
+  <aside class="sidebar">
+    <h3>Categories</h3>
+    <ul>
+      <li>Art</li>
+      <li>Culture</li>
+      <li>Fashion</li>
+    </ul>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  © 2026 YourMagazine
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
