@@ -12,22 +12,24 @@
 
 <header class="main-header">
     <div class="logo">
-        <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        <a href="index.html">
+            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        </a>
     </div>
     <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     <nav class="navbar">
         <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#">Articles</a></li>
             <li class="dropdown">
                 <a href="#">Categories</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Art & Design</a></li>
-                    <li><a href="#">Culture</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Music & Film</a></li>
-                    <li><a href="#">Gaming</a></li>
-                    <li><a href="#">Radar</a></li>
+                    <li><a href="#art-design">Art & Design</a></li>
+                    <li><a href="#culture">Culture</a></li>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#music-film">Music & Film</a></li>
+                    <li><a href="#gaming">Gaming</a></li>
+                    <li><a href="#radar">Radar</a></li>
                 </ul>
             </li>
         </ul>
@@ -39,61 +41,118 @@
     <section class="featured-grid">
         <!-- Primary Featured Post -->
         <article class="featured-post primary">
-            <img src="" alt="Featured story about Japanese culture">
+            <img src="IMAGES/FASHION/LARIENFEB7.png" alt="An Illocano woman in traditional Filipiniana">
             <div class="featured-content">
                 <span class="category-tag">Culture</span>
                 <h2>Reject modernity, embrace tradition.</h2>
-                <p class="excerpt">Being proud of our traditional wear means being proud of our history.</p>
-                <p class="meta">Feb 7, 2026</p>
+                <p class="excerpt">Being proud of our traditional wear means being proud of our history. A deep dive into Filipiniana fashion and its cultural significance.</p>
+                <p class="meta">Nina Larien De Luna · Feb 7, 2026</p>
             </div>
         </article>
 
         <!-- Secondary Featured Posts Grid -->
         <div class="secondary-grid">
-          <article class="featured-post secondary">
-              <a href="ARTICLES/article-filipiniana.html" style="text-decoration: none; color: inherit;">
-                  <img src="IMAGES/FASHION/LARIENFEB7.png" alt="FILIPINIANA">
-                  <div class="featured-content">
-                      <span class="category-tag">Culture</span>
-                      <h3>Reject modernity, embrace tradition.</h3>
-                      <p class="meta">Feb 7, 2026</p>
-                  </div>
-              </a>
-          </article>
-      </div>
+            <a href="article-filipiniana.html" class="featured-post secondary">
+                <img src="IMAGES/FASHION/LARIENFEB7.png" alt="FILIPINANA">
+                <div class="featured-content">
+                    <span class="category-tag">Culture</span>
+                    <h3>Reject modernity, embrace tradition</h3>
+                    <p class="meta">Feb 7, 2026 · 4 min read</p>
+                </div>
+            </a>
+            
+            <a href="article-tokyo-ga.html" class="featured-post secondary">
+                <img src="https://picsum.photos/800/450?random=tokyo" alt="Tokyo 1980s">
+                <div class="featured-content">
+                    <span class="category-tag">Music & Film</span>
+                    <h3>Tokyo‑Ga - The Contrast of Japan in the 80s</h3>
+                    <p class="meta">Wim Wenders · Feb 18, 2026</p>
+                </div>
+            </a>
+        </div>
+        
         <!-- Category Sections -->
-         
-        <section class="category-section">
+        <section class="category-section" id="art-design">
             <h2 class="section-title">Art & Design</h2>
             <div class="category-grid">
-                <article class="category-post">
-                    <img src="https://picsum.photos/300/200?random=7" alt="Vaporwave Art">
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=7" alt="Vaporwave Art">
                     <h3>Japan as Interface - Vaporwave Art Culture of the 1990s</h3>
                     <p class="meta">Jan 18, 2026</p>
-                </article>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=8" alt="Japanese Typography">
+                    <h3>The Evolution of Japanese Typography in Digital Media</h3>
+                    <p class="meta">Jan 25, 2026</p>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=9" alt="Contemporary Ceramics">
+                    <h3>Mud and Fire: Contemporary Japanese Ceramics</h3>
+                    <p class="meta">Feb 2, 2026</p>
+                </a>
             </div>
         </section>
 
-        <section class="category-section">
+        <section class="category-section" id="fashion">
             <h2 class="section-title">Fashion</h2>
             <div class="category-grid">
-                <article class="category-post">
-                    <img src="https://picsum.photos/300/200?random=9" alt="STREET In London">
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=10" alt="STREET In London">
                     <h3>STREET In London - When Harajuku's Icon Turned His Lens Overseas</h3>
                     <p class="meta">Feb 1, 2026</p>
-                </article>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=11" alt="Tokyo Fashion Week">
+                    <h3>Tokyo Fashion Week: The Rise of Genderless Fashion</h3>
+                    <p class="meta">Feb 5, 2026</p>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=12" alt="Vintage Kimono">
+                    <h3>Vintage Kimono: A Collector's Guide to Edo Period Textiles</h3>
+                    <p class="meta">Feb 10, 2026</p>
+                </a>
             </div>
         </section>
 
-        <!-- Radar Section -->
-        <section class="category-section">
+        <section class="category-section" id="radar">
             <h2 class="section-title">Radar</h2>
             <div class="category-grid">
-                <article class="category-post">
-                    <img src="https://picsum.photos/300/200?random=12" alt="Emerging Designers">
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=13" alt="Emerging Designers">
                     <h3>Next Wave: 5 Emerging Designers from Tokyo's Avant-Garde Scene</h3>
                     <p class="meta">Feb 8, 2026</p>
-                </article>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=14" alt="Underground Music">
+                    <h3>Tokyo's Underground: The New Sound of Shibuya-kei</h3>
+                    <p class="meta">Feb 12, 2026</p>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=15" alt="Indie Film">
+                    <h3>Independent Japanese Cinema: 5 Directors to Watch</h3>
+                    <p class="meta">Feb 14, 2026</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="category-section" id="music-film">
+            <h2 class="section-title">Music & Film</h2>
+            <div class="category-grid">
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=104" alt="Mei Semones">
+                    <h3>Mei Semones - Writing Between Languages</h3>
+                    <p class="meta">Feb 4, 2026</p>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=105" alt="f5ve">
+                    <h3>The Creative Force Behind f5ve</h3>
+                    <p class="meta">Jan 28, 2026</p>
+                </a>
+                <a href="#" class="category-post">
+                    <img src="https://picsum.photos/400/300?random=106" alt="Taroman">
+                    <h3>Taroman - A Pure Homage to Tokusatsu</h3>
+                    <p class="meta">Jan 19, 2026</p>
+                </a>
             </div>
         </section>
     </section>
@@ -103,13 +162,32 @@
         <div class="sidebar-widget">
             <h3>Categories</h3>
             <ul class="category-list">
-                <li><a href="#">Art & Design</a></li>
-                <li><a href="#">Culture</a></li>
-                <li><a href="#">Fashion</a></li>
-                <li><a href="#">Music & Film</a></li>
-                <li><a href="#">Gaming</a></li>
-                <li><a href="#">Radar</a></li>
+                <li><a href="#art-design">Art & Design</a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#fashion">Fashion</a></li>
+                <li><a href="#music-film">Music & Film</a></li>
+                <li><a href="#gaming">Gaming</a></li>
+                <li><a href="#radar">Radar</a></li>
             </ul>
+        </div>
+        
+        <div class="sidebar-widget">
+            <h3>Editors' Picks</h3>
+            <ul class="category-list">
+                <li><a href="article-filipiniana.html">Reject modernity, embrace tradition</a></li>
+                <li><a href="article-tokyo-ga.html">Tokyo‑Ga: The Contrast of Japan in the 80s</a></li>
+                <li><a href="#">Next Wave: Tokyo's Emerging Designers</a></li>
+                <li><a href="#">Mei Semones: Writing Between Languages</a></li>
+            </ul>
+        </div>
+        
+        <div class="sidebar-widget">
+            <h3>Newsletter</h3>
+            <p style="margin-bottom: 1rem; color: #4a4a4a; font-size: 0.95rem;">Get the latest articles delivered to your inbox.</p>
+            <form style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <input type="email" placeholder="Your email" style="padding: 0.75rem; border: 1px solid #eaeaea; border-radius: 8px; font-size: 0.9rem;">
+                <button type="submit" style="padding: 0.75rem; background: #1a1a1a; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: background 0.2s;">Subscribe</button>
+            </form>
         </div>
     </aside>
 </main>
