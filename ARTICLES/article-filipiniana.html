@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riles Magazine</title>
+    <link rel="icon" type="image/png" href="RILESCOMBIMARK.PNG">
+    <link rel="shortcut icon" type="image/png" href="RILESCOMBIMARK.PNG">
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Article-specific styles */
+        .article-main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .back-to-home {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-home:hover {
+            color: #e63946;
+        }
+        
+        .full-article {
+            background: #fff;
+        }
+        
+        .article-header {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 0.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-category {
+            display: inline-block;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .article-meta {
+            color: #767676;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta span {
+            margin: 0 0.25rem;
+        }
+        
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .article-content .intro {
+            font-size: 1.2rem;
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content h3 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid #e63946;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: #4a4a4a;
+            font-size: 1.2rem;
+        }
+        
+        .article-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .related-articles {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #1a1a1a;
+        }
+        
+        .related-articles h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .related-article {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .related-article:hover h4 {
+            color: #e63946;
+        }
+        
+        .related-article img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-article h4 {
+            font-size: 1rem;
+            margin: 0.5rem 0 0.25rem;
+            transition: color 0.2s;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+        </a>
+    </div>
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#art-design">Art & Design</a></li>
+                    <li><a href="index.html#culture">Culture</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#music-film">Music & Film</a></li>
+                    <li><a href="index.html#gaming">Gaming</a></li>
+                    <li><a href="index.html#radar">Radar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article-main">
+    <a href="index.html" class="back-to-home">← Back to Home</a>
+    
+    <article class="full-article">
+        <header class="article-header">
+            <span class="article-category">Music & Film</span>
+            <h1>Reject modernity, embrace tradition</h1>
+            <div class="article-meta">
+                <span>By Nina Larien De Luna</span>
+                <span>·</span>
+                <span>February 7, 2026</span>
+                <span>·</span>
+            </div>
+        </header>
+        
+        <img src="IMAGES/FASHION/LARIENFEB7.png" alt="An Illocano woman smoking tobacco" class="article-filipiniana-image">
+        
+        <div class="article-content">
+            <p class="intro"><strong>Wenders wanders a city racing forward, searching for Ozu's stillness. In 1980s Tokyo, the German director found a metropolis caught between tradition and hyper-modernity.</strong></p>
+            
+            <h2>FILIPINIANA</h2>
+            <p>Being proud of our traditional wear means being proud of our history. The world of the filipiniana is vast, with different variants and offshoots such as the baro’t saya, traje de mestiza, maria clara, and the terno. Throughout time, trends in the filipiniana have changed according to major events in history such as Spanish and American colonial periods. The different kinds of filipiniana show the identity of the wearer. The traje de mestiza, commonly worn by women in studio photos (which were expensive to do), were a more expensive version of the baro’t saya, having more layers of lace and silk fabrics. All filipiniana, however, trace back to our roots as they, along with the barong tagalog, are based on the pre-colonial baro.</p>
+            <blockquote>
+                Fun fact: Notice how filipiniana’s sleeves puff up more from the 1890s to the 1930s? These sleeve sizes are connected to women’s rights and women empowerment movements. These puffed-up sleeves made it so that the panuelos, a modesty covering along the chest, became smaller and smaller until they were abandoned in the 1950s.
+            </blockquote>
+            
+        </div>
+        
+        <footer class="article-footer">
+            <p><strong>Tags:</strong> 
+                <a href="#">Filipiniana</a>, 
+                <a href="#">Fashion</a>, 
+                <a href="#">Tradition</a>, 
+            </p>
+            <p><strong>Share:</strong> 
+                <a href="#">Twitter</a> | 
+                <a href="#">Facebook</a> | 
+                <a href="#">Email</a>
+            </p>
+        </footer>
+    </article>
+    
+    <!-- Related articles section -->
+    <div class="related-articles">
+        <h3>More from Music & Film</h3>
+        <div class="related-grid">
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=104" alt="Mei Semones">
+                <h4>Mei Semones - Writing Between Languages</h4>
+                <span class="meta">Feb 4, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=105" alt="f5ve">
+                <h4>The Creative Force Behind f5ve</h4>
+                <span class="meta">Jan 28, 2026</span>
+            </a>
+            <a href="#" class="related-article">
+                <img src="https://picsum.photos/300/200?random=106" alt="Taroman">
+                <h4>Taroman - A Pure Homage to Tokusatsu</h4>
+                <span class="meta">Jan 19, 2026</span>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>© 2026 Riles Magazine. All rights reserved.</p>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.navbar').classList.toggle('active');
+    });
+</script>
+</body>
+</html>
