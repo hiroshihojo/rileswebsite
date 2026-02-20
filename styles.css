@@ -156,7 +156,7 @@ body {
   font-weight: 600;
   display: inline-block;
   margin-bottom: 1rem;
-  background: #bfdb02;
+  background: #0432c7;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
 }
@@ -369,12 +369,12 @@ body {
 
 .article-category {
   display: inline-block;
-  color: #0432c7;
+  color: #bfdb02;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
   font-size: 0.8rem;
-  background: #bfdb02;
+  background: #0432c7;
   padding: 0.35rem 1rem;
   border-radius: 30px;
 }
