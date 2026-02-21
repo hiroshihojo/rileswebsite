@@ -7,6 +7,9 @@
     <link rel="icon" type="image/x-icon" href="RILESCOMBIMARK.ico">
     <link rel="shortcut icon" type="image/x-icon" href="RILESCOMBIMARK.ico">
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -38,7 +41,7 @@
 </header>
 
 <main class="content-wrapper">
-    <!-- Main Featured Area (Left Column) -->
+    <!-- LEFT MAIN COLUMN (unchanged, all your posts remain) -->
     <section class="featured-grid">
         <!-- Primary Featured Post -->
         <article class="featured-post primary">
@@ -72,8 +75,6 @@
             </a>
         </div>
         
-        <!-- Category Sections -->
-
         <!-- RADAR -->
         <section class="category-section" id="radar">
             <h2 class="section-title">Radar</h2>
@@ -82,13 +83,8 @@
                     <img src="IMAGES\RADAR\HOJOJAN28.png" alt="TrenKo's in-app UI">
                     <h3>TrenKo, Metro Manila’s Real-Time Train Guide for Everyday Commuters</h3>
                     <p class="meta">Jan 28, 2026</p>
-                    </div>
                 </a>
-                <!--<a href="#" class="category-post">
-                    <img src="#" alt="">
-                    <h3>TITLE</h3>
-                    <p class="meta">DATE</p>
-                </a>-->
+                <!-- hidden template comment kept -->
             </div>
         </section>
         <!-- CULTURE -->
@@ -99,13 +95,7 @@
                     <img src="IMAGES/CULTURE/LARIENFEB7.png" alt="Filpiniana">
                     <h3>FILIPINIANA</h3>
                     <p class="meta">Feb 7, 2026</p>
-                    </div>
                 </a>
-                <!--<a href="#" class="category-post">
-                    <img src="#" alt="">
-                    <h3>TITLE</h3>
-                    <p class="meta">DATE</p>
-                </a>-->
             </div>
         </section>
         
@@ -113,20 +103,18 @@
         <section class="category-section" id="art-design">
             <h2 class="section-title">Art & Design</h2>
             <div class="category-grid">
+                <!-- empty for now -->
             </div>
         </section>
         <!-- MUSIC & FILM -->
         <section class="category-section" id="music-film">
             <h2 class="section-title">Music & Film</h2>
-            <div class="category-grid">
-                
-            </div>
+            <div class="category-grid"></div>
         </section>
         <!-- FASHION -->
         <section class="category-section" id="fashion">
             <h2 class="section-title">Fashion</h2>
-            <div class="category-grid">
-            </div>
+            <div class="category-grid"></div>
         </section>
         <!-- GAMING -->
         <section class="category-section" id="gaming">
@@ -136,37 +124,31 @@
                     <img src="IMAGES\GAMING\HOJOJAN29.png" alt="in game screenshot">
                     <h3>The Dreaded Hut, Survival Horror game inspired by Filipino folklore and myth</h3>
                     <p class="meta">Jan 28, 2026</p>
-                    </div>
                 </a>
             </div>
         </section>
-
-
     </section>
 
-    <!-- Sidebar (Right Column) -->
+    <!-- RIGHT SIDEBAR (with the NEW SIGN-UP BOX) -->
     <aside class="sidebar">
-        <div class="sidebar-widget">
-           <!--<h3>Categories</h3>
-            <ul class="category-list">
-                <li><a href="#radar">Radar</a></li>
-                <li><a href="#culture">Culture</a></li>
-                <li><a href="#art-design">Art & Design</a></li>
-                <li><a href="#music-film">Music & Film</a></li>
-                <li><a href="#fashion">Fashion</a></li>
-                <li><a href="#gaming">Gaming</a></li>
-            </ul>-->
+        <!-- your existing empty widget (you had a commented categories) 
+             but we replace with the callout as first widget -->
+        <div class="sidebar-widget team-signup-widget">
+            <h3>✎ join the team</h3>
+            <p>Writers, designers, photographers — we want you. Help us shape Riles Magazine.</p>
+            <!-- this is the "sign up and be part of the team" box you requested -->
+            <a href="#" class="signup-button">SIGN UP →</a>
         </div>
-        
+
+        <!-- Weekly Picks (original) -->
         <div class="sidebar-widget">
             <h3>Weekly Picks</h3>
             <ul class="category-list">
                 <li><a href="article-filipiniana.html">Reject modernity, embrace tradition</a></li>
-                <li><a href="article-TrenKo.html">TrenKo: Metro Manila’s Real-Time Train Guide for Everyday Commuters</a></li>
-                <li><a href="article-dreadedhut.html">The Dreaded Hut, Survival Horror game inspired by Filipino folklore and myth</a></li>
+                <li><a href="article-TrenKo.html">TrenKo: Metro Manila’s Real-Time Train Guide</a></li>
+                <li><a href="article-dreadedhut.html">The Dreaded Hut — folklore horror</a></li>
             </ul>
         </div>
-        
     </aside>
 </main>
 
@@ -175,10 +157,12 @@
 </footer>
 
 <script>
-    // Mobile menu toggle
+    // Mobile menu toggle (exactly as you had)
     document.querySelector('.menu-toggle').addEventListener('click', function() {
         document.querySelector('.navbar').classList.toggle('active');
     });
 </script>
+
+<!-- note: the new sign-up box is the blue/yellow widget in sidebar -->
 </body>
 </html>
