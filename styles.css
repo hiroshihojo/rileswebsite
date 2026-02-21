@@ -399,74 +399,127 @@ body {
     padding: 1rem; 
     flex-wrap: wrap; 
     position: relative;
+    background: #0432c7;
   }
   .logo-image { 
     height: 24px; 
+    filter: brightness(0) invert(1); /* Makes logo white for better contrast */
   }
   .menu-toggle { 
     display: block; 
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    line-height: 1;
   }
   
-  /* Mobile menu improvements */
+  /* Mobile menu improvements - FIXED */
   .navbar { 
     display: none; 
     width: 100%; 
-    order: 3; 
-    background: #0432c7;  /* Keep blue background for mobile menu */
-    padding: 1rem 0;
+    background: #0432c7;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     border-top: 1px solid rgba(255,255,255,0.2);
+    z-index: 1000;
   }
+  
   .navbar.active { 
-    display: block; 
+    display: block !important; 
   }
+  
   .nav-menu { 
     flex-direction: column; 
     gap: 0; 
     align-items: stretch; 
-    padding: 0 1rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
+  
   .nav-menu li {
     border-bottom: 1px solid rgba(255,255,255,0.1);
+    width: 100%;
+    padding: 0;
   }
+  
   .nav-menu li:last-child {
     border-bottom: none;
   }
+  
   .nav-menu a {
     display: block;
-    padding: 0.75rem 0;
-    color: white;
+    padding: 1rem 1.5rem;
+    color: white !important;
+    font-size: 1rem;
+    text-decoration: none;
+  }
+  
+  .nav-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    color: #bfdb02 !important;
   }
   
   /* Dropdown mobile improvements */
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown > a {
+    position: relative;
+  }
+  
+  .dropdown > a::after {
+    content: '▼';
+    font-size: 0.7rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+  }
+  
   .dropdown-menu { 
     position: static; 
     display: none; 
     border: none; 
-    padding-left: 1rem; 
-    background: transparent;
+    background: rgba(0,0,0,0.2);
     box-shadow: none;
     min-width: auto;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
   }
-  .dropdown:hover .dropdown-menu {
-    display: none;
-  }
+  
   .dropdown.active .dropdown-menu {
     display: block;
   }
+  
   .dropdown-menu li {
-    padding: 0.5rem 0;
-  }
-  .dropdown-menu a {
-    color: rgba(255,255,255,0.8);
-    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 0;
   }
   
-  /* Grid adjustments */
+  .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-menu a {
+    padding: 0.75rem 2rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9) !important;
+  }
+  
+  .dropdown-menu a:hover {
+    background: rgba(255,255,255,0.1);
+    padding-left: 2.25rem;
+  }
+  
+  /* Rest of your mobile styles remain the same from previous message... */
   .secondary-grid, 
   .category-grid, 
   .related-grid { 
@@ -480,7 +533,6 @@ body {
     gap: 2rem;
   }
   
-  /* Featured post mobile improvements */
   .featured-post.primary {
     border-radius: 12px;
   }
@@ -503,7 +555,6 @@ body {
     margin-bottom: 0.75rem;
   }
   
-  /* Category section mobile improvements */
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
@@ -533,7 +584,6 @@ body {
     display: none;
   }
   
-  /* Sidebar mobile improvements */
   .sidebar {
     gap: 1.5rem;
     margin-top: 1rem;
@@ -543,7 +593,6 @@ body {
     padding: 1.5rem;
   }
   
-  /* Sign-up widget mobile improvements */
   .team-signup-widget {
     padding: 1.5rem;
   }
@@ -558,61 +607,13 @@ body {
     box-shadow: 0 6px 0 #7f9900;
   }
   
-  .signup-button:hover {
-    box-shadow: 0 8px 0 #7f9900;
-  }
-  
-  .signup-button:active {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0 #7f9900;
-  }
-  
-  /* Weekly picks mobile improvements */
   .category-list a {
     padding: 0.6rem 0;
     font-size: 0.95rem;
   }
   
-  /* Footer */
   .site-footer {
     padding: 2rem 1rem;
     margin-top: 2rem;
-  }
-}
-
-/* Extra small devices */
-@media (max-width: 480px) {
-  .category-post {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  
-  .category-post img {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
-  }
-  
-  .category-post h3 {
-    font-size: 1.1rem;
-  }
-  
-  .category-post .meta {
-    display: block;
-    font-size: 0.8rem;
-  }
-  
-  .featured-post h2 {
-    font-size: 1.3rem;
-  }
-  
-  .team-signup-widget h3 {
-    font-size: 1.2rem;
-  }
-  
-  .signup-button {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.95rem;
   }
 }
