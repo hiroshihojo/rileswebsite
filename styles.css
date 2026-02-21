@@ -403,7 +403,6 @@ body {
   }
   .logo-image { 
     height: 24px; 
-    filter: brightness(0) invert(1); /* Makes logo white for better contrast */
   }
   .menu-toggle { 
     display: block; 
