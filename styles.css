@@ -694,7 +694,7 @@ body {
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1000px) {
   .signup-button {
     font-size: 1.2rem;
   }
