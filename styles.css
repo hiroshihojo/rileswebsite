@@ -625,4 +625,19 @@ body {
     overflow: hidden;
   }
 
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .category-section {
+    margin-bottom: 0;
+  }
+
+  .category-section .section-title {
+    margin-top: 0;
+  }
+
 }
