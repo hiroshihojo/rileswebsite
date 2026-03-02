@@ -670,20 +670,33 @@ body {
     margin-bottom: 1.5rem;
   }
   
-  .signup-button {
-    color: white;
-    font-weight: 700;
-    font-size: 1rem;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .signup-button:hover {
-    color: #bfdb02; /* Optional: changes to Riles yellow on hover */
-  }
+  /* SINGLE SIGNUP BUTTON STYLE - Apply to all screens */
+.signup-button {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  background: none;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.signup-button:hover {
+  color: #bfdb02; /* Optional hover effect */
+}
+
+/* Remove any other .signup-button styles elsewhere in your CSS */
   
   .site-footer {
     padding: 2rem 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .signup-button {
+    font-size: 1.2rem;
   }
 }
 
