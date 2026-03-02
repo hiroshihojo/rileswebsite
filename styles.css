@@ -671,9 +671,15 @@ body {
   }
   
   .signup-button {
-    padding: 0.75rem 1.5rem;
+    color: white;
+    font-weight: 700;
     font-size: 1rem;
-    box-shadow: 0 6px 0 #7f9900;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .signup-button:hover {
+    color: #bfdb02; /* Optional: changes to Riles yellow on hover */
   }
   
   .site-footer {
