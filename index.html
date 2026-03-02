@@ -10,23 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <style>
-        /* Add this to your styles.css file or keep it here */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .category-section {
-            margin-bottom: 0;
-        }
-        
-        .category-section .section-title {
-            margin-top: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -58,7 +41,7 @@
 </header>
 
 <main class="content-wrapper">
-    <!-- LEFT MAIN COLUMN -->
+    <!-- MAIN CONTENT - NO SIDEBAR -->
     <section class="featured-grid">
         <!-- Primary Featured Post -->
         <article class="featured-post primary">
@@ -71,8 +54,9 @@
             </div>
         </article>
 
-        <!-- Secondary Featured Posts Grid -->
-        <div class="secondary-grid">
+        <!-- Secondary Featured Posts + Widgets Grid -->
+        <div class="secondary-widgets-grid">
+            <!-- Secondary Featured Posts -->
             <a href="article-filipiniana.html" class="featured-post secondary">
                 <img src="IMAGES/CULTURE/LARIENFEB7.png" alt="FILIPINANA">
                 <div class="featured-content">
@@ -90,13 +74,29 @@
                     <p class="meta">Hiroshi Hojo · Jan 28, 2026</p>
                 </div>
             </a>
+
+            <!-- Team Signup Widget -->
+            <div class="widget-card team-signup-widget" style="background-image: url('TEAM-WIDGET-BG.jpg'); background-size: cover; background-position: center;">
+                <h3>Become a staff</h3>
+                <p>Help us shape Riles Magazine.</p>
+                <a href="https://forms.gle/YVAgXaLf1zY8Mfwx8" class="signup-button">SIGN UP →</a>
+            </div>
+
+            <!-- Weekly Picks Widget -->
+            <div class="widget-card weekly-picks-widget">
+                <h3>Weekly Picks</h3>
+                <ul class="category-list">
+                    <li><a href="article-filipiniana.html">Reject modernity, embrace tradition</a></li>
+                    <li><a href="article-TrenKo.html">TrenKo: Metro Manila’s Real-Time Train Guide</a></li>
+                    <li><a href="article-dreadedhut.html">The Dreaded Hut — folklore horror</a></li>
+                </ul>
+            </div>
         </div>
 
         <!-- INSTAGRAM EMBED SECTION -->
         <section class="instagram-section">
             <h2 class="section-title">Our Latest Post</h2>
             <div class="instagram-embed-container">
-                <!-- Replace with your actual Instagram embed code -->
                 <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVAbQfDkTkv/?img_index=1" data-instgrm-version="14"></blockquote>
                 <script async src="//www.instagram.com/embed.js"></script>
             </div>
@@ -161,27 +161,6 @@
             </section>
         </div>
     </section>
-
-    <!-- RIGHT SIDEBAR (with the NEW SIGN-UP BOX) -->
-    <aside class="sidebar">
-        <!-- your existing empty widget (you had a commented categories) 
-             but we replace with the callout as first widget -->
-        <div class="sidebar-widget team-signup-widget" style="background-image: url('TEAM-WIDGET-BG.jpg'); background-size: cover; background-position: center; padding: 20px; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 8px;">
-            <h3 style="color: white; margin-top: 0; text-align: center;">Become a staff</h3>
-            <p style="color: white; text-align: center;">Help us shape Riles Magazine.</p>
-            <a href="https://forms.gle/YVAgXaLf1zY8Mfwx8" class="signup-button" style="background: white; color: black; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block; font-weight: bold;">SIGN UP →</a>
-        </div>
-
-        <!-- Weekly Picks (original) -->
-        <div class="sidebar-widget">
-            <h3>Weekly Picks</h3>
-            <ul class="category-list">
-                <li><a href="article-filipiniana.html">Reject modernity, embrace tradition</a></li>
-                <li><a href="article-TrenKo.html">TrenKo: Metro Manila’s Real-Time Train Guide</a></li>
-                <li><a href="article-dreadedhut.html">The Dreaded Hut — folklore horror</a></li>
-            </ul>
-        </div>
-    </aside>
 </main>
 
 <footer class="site-footer">
