@@ -11,22 +11,33 @@ body {
   background: #ffffff;
 }
 
-/* HEADER */
+/* ===== HEADER - Yokogao Mag Style ===== */
 .main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 2rem;
-  border-bottom: 1px solid #eaeaea;
+  background: #0432c7;
+  padding: 1rem 2rem 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   position: sticky;
   top: 0;
-  background: #0432c7;
-  backdrop-filter: blur(10px);
   z-index: 100;
 }
 
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.header-left {
+  /* Empty for spacing */
+}
+
+.logo {
+  text-align: center;
+}
+
 .logo-image {
-  height: 32px;
+  height: 40px;
   width: auto;
   display: block;
 }
@@ -38,6 +49,15 @@ body {
   border: none;
   cursor: pointer;
   color: #ffffff;
+  justify-self: end;
+}
+
+/* Navigation below logo */
+.navbar {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem 0 0;
 }
 
 .nav-menu {
@@ -45,6 +65,7 @@ body {
   display: flex;
   gap: 2.5rem;
   align-items: center;
+  padding: 0;
 }
 
 .nav-menu a {
@@ -54,10 +75,17 @@ body {
   font-size: 0.95rem;
   letter-spacing: 0.02em;
   transition: color 0.2s;
+  padding: 0.5rem 0;
+  display: inline-block;
 }
 
 .nav-menu a:hover {
   color: #bfdb02;
+}
+
+.nav-menu a.active {
+  color: #bfdb02;
+  border-bottom: 2px solid #bfdb02;
 }
 
 .dropdown {
@@ -67,14 +95,15 @@ body {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: #0432c7;
-  border: 1px solid #ffffff;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
   padding: 0.75rem 0;
   min-width: 200px;
   display: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   list-style: none;
   z-index: 10;
 }
@@ -91,6 +120,12 @@ body {
   display: block;
   font-weight: normal;
   font-size: 0.9rem;
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  color: #bfdb02;
+  padding-left: 0.5rem;
 }
 
 /* MAIN LAYOUT - NO SIDEBAR */
@@ -176,10 +211,10 @@ body {
   font-weight: bold;
 }
 
-/* Secondary + Widgets Grid - 4 columns */
+/* Secondary + Widgets Grid - 3 COLUMNS */
 .secondary-widgets-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -219,13 +254,6 @@ body {
   flex-direction: column;
 }
 
-.widget-card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.01em;
-}
-
 .team-signup-widget {
   background-size: cover;
   background-position: center;
@@ -255,13 +283,6 @@ body {
   color: rgba(255,255,255,0.9);
 }
 
-.empty-widget {
-  background: transparent;
-  box-shadow: none;
-  min-height: 0;
-  padding: 0;
-}
-
 .signup-button {
   display: inline-block;
   background: #bfdb02;
@@ -288,11 +309,11 @@ body {
   box-shadow: 0 4px 0 #7f9900;
 }
 
-/* Media Grid - 2 columns for Instagram and Spotify */
+/* Media Grid - 2 columns with compact spacing */
 .media-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 1rem; /* Reduced gap for compact look */
   margin: 2rem 0;
 }
 
@@ -415,7 +436,7 @@ body {
   
   .media-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
   
   .categories-grid {
@@ -424,37 +445,38 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Header improvements */
+  /* Header improvements - Yokogao style on mobile */
   .main-header { 
-    padding: 1rem; 
-    flex-wrap: wrap; 
-    position: relative;
-    background: #0432c7;
+    padding: 0.75rem 1rem 0.25rem;
   }
+  
+  .header-top {
+    grid-template-columns: 1fr auto 1fr;
+    margin-bottom: 0.25rem;
+  }
+  
   .logo-image { 
-    height: 24px; 
+    height: 28px; 
   }
+  
   .menu-toggle { 
     display: block; 
     font-size: 1.8rem;
     color: white;
     background: none;
     border: none;
-    padding: 0.5rem;
+    padding: 0.25rem;
     line-height: 1;
+    justify-self: end;
   }
   
-  /* Mobile menu improvements */
+  /* Mobile menu */
   .navbar { 
     display: none; 
     width: 100%; 
     background: #0432c7;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
     border-top: 1px solid rgba(255,255,255,0.2);
-    z-index: 1000;
+    margin-top: 0.5rem;
   }
   
   .navbar.active { 
@@ -493,7 +515,12 @@ body {
     color: #bfdb02 !important;
   }
   
-  /* Dropdown mobile improvements */
+  .nav-menu a.active {
+    border-bottom: none;
+    background: rgba(191, 219, 2, 0.2);
+  }
+  
+  /* Dropdown mobile */
   .dropdown {
     position: relative;
   }
@@ -522,6 +549,8 @@ body {
     padding: 0;
     margin: 0;
     border-radius: 0;
+    transform: none;
+    left: auto;
   }
   
   .dropdown.active .dropdown-menu {
@@ -608,7 +637,7 @@ body {
   
   .media-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 1.5rem 0;
   }
   
@@ -657,10 +686,6 @@ body {
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
     box-shadow: 0 6px 0 #7f9900;
-  }
-  
-  .empty-widget {
-    display: none;
   }
   
   .site-footer {
