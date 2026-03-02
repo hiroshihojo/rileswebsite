@@ -211,10 +211,10 @@ body {
   font-weight: bold;
 }
 
-/* Secondary + Widgets Grid - 3 COLUMNS */
-.secondary-widgets-grid {
+/* Secondary Grid - 2 COLUMNS */
+.secondary-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
@@ -245,75 +245,11 @@ body {
   margin: 0;
 }
 
-/* Widget Cards */
-.widget-card {
-  background: #fafafa;
-  border-radius: 16px;
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.team-signup-widget {
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 2rem 1.5rem;
-  min-height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 12px;
-}
-
-.team-signup-widget h3 {
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.02em;
-  border: none;
-}
-
-.team-signup-widget p {
-  font-size: 1rem;
-  margin: 0.75rem 0 1.5rem;
-  color: rgba(255,255,255,0.9);
-}
-
-.signup-button {
-  display: inline-block;
-  background: #bfdb02;
-  color: #0432c7;
-  font-weight: 700;
-  font-size: 1.1rem;
-  padding: 0.9rem 2.2rem;
-  border-radius: 40px;
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  transition: all 0.2s;
-  border: 2px solid #bfdb02;
-  box-shadow: 0 8px 0 #7f9900;
-}
-
-.signup-button:hover {
-  background: #d4f00c;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 0 #7f9900;
-}
-
-.signup-button:active {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 #7f9900;
-}
-
 /* Media Grid - 2 columns with compact spacing */
 .media-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem; /* Reduced gap for compact look */
+  gap: 1rem;
   margin: 2rem 0;
 }
 
@@ -396,6 +332,52 @@ body {
   margin-top: 0.25rem;
 }
 
+/* TEAM SIGNUP BOTTOM BANNER */
+.team-signup-banner {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 4rem 0 0;
+  padding: 4rem 2rem;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.team-signup-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  color: white;
+}
+
+.banner-content h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.9);
+}
+
 /* FOOTER */
 .site-footer {
   text-align: center;
@@ -403,13 +385,12 @@ body {
   border-top: 1px solid #eaeaea;
   color: #767676;
   font-size: 0.9rem;
-  margin-top: 4rem;
   background: #ffffff;
 }
 
 /* MOBILE */
 @media (max-width: 1200px) {
-  .secondary-widgets-grid {
+  .secondary-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -445,7 +426,7 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Header improvements - Yokogao style on mobile */
+  /* Header improvements */
   .main-header { 
     padding: 0.75rem 1rem 0.25rem;
   }
@@ -583,7 +564,7 @@ body {
     margin: 1rem auto;
   }
   
-  .secondary-widgets-grid {
+  .secondary-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
@@ -673,13 +654,19 @@ body {
     flex: 1;
   }
   
-  .team-signup-widget {
-    min-height: 220px;
-    padding: 1.5rem;
+  /* Team signup banner mobile */
+  .team-signup-banner {
+    min-height: 250px;
+    padding: 3rem 1.5rem;
+    margin-top: 2rem;
   }
   
-  .team-signup-widget h3 {
-    font-size: 1.4rem;
+  .banner-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .banner-content p {
+    font-size: 1rem;
   }
   
   .signup-button {
@@ -690,6 +677,5 @@ body {
   
   .site-footer {
     padding: 2rem 1rem;
-    margin-top: 2rem;
   }
 }
