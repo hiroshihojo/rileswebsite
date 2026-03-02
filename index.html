@@ -82,25 +82,38 @@
                 <a href="https://forms.gle/YVAgXaLf1zY8Mfwx8" class="signup-button">SIGN UP →</a>
             </div>
 
-            <!-- Weekly Picks Widget -->
-            <div class="widget-card weekly-picks-widget">
-                <h3>Weekly Picks</h3>
-                <ul class="category-list">
-                    <li><a href="article-filipiniana.html">Reject modernity, embrace tradition</a></li>
-                    <li><a href="article-TrenKo.html">TrenKo: Metro Manila’s Real-Time Train Guide</a></li>
-                    <li><a href="article-dreadedhut.html">The Dreaded Hut — folklore horror</a></li>
-                </ul>
-            </div>
+            <!-- Empty space for grid alignment (since we removed weekly picks) -->
+            <div class="widget-card empty-widget"></div>
         </div>
 
-        <!-- INSTAGRAM EMBED SECTION -->
-        <section class="instagram-section">
-            <h2 class="section-title">Our Latest Post</h2>
-            <div class="instagram-embed-container">
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVAbQfDkTkv/?img_index=1" data-instgrm-version="14"></blockquote>
-                <script async src="//www.instagram.com/embed.js"></script>
-            </div>
-        </section>
+        <!-- MEDIA GRID - Instagram + Spotify in 2 columns -->
+        <div class="media-grid">
+            <!-- INSTAGRAM EMBED SECTION -->
+            <section class="media-section instagram-section">
+                <h2 class="section-title">Our Latest Post</h2>
+                <div class="instagram-embed-container">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DVAbQfDkTkv/?img_index=1" data-instgrm-version="14"></blockquote>
+                    <script async src="//www.instagram.com/embed.js"></script>
+                </div>
+            </section>
+
+            <!-- SPOTIFY PLAYLIST SECTION -->
+            <section class="media-section spotify-section">
+                <h2 class="section-title">Riles Radio</h2>
+                <div class="spotify-embed-container">
+                    <iframe 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/playlist/2vledWtMQNAzyo6WlH7zKp?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="352" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </section>
+        </div>
         
         <!-- CATEGORIES GRID - 3 COLUMNS, 2 ROWS -->
         <div class="categories-grid">
