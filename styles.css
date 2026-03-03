@@ -391,9 +391,9 @@ body {
   text-align: center;
   padding: 3rem 2rem;
   border-top: 1px solid #eaeaea;
-  color: #767676;
+  color: #ffffff;
   font-size: 0.9rem;
-  background: #ffffff;
+  background: #000000;
 }
 
 /* MOBILE */
@@ -695,7 +695,7 @@ body {
 }
 
 @media (min-width: 1000px) {
-  .signup-button {
+  .signup-button {  /* Desktop */
     font-size: 1.2rem;
   }
 }
