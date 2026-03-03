@@ -669,37 +669,48 @@ body {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
-  /* SINGLE SIGNUP BUTTON STYLE - Apply to all screens */
+}
+
+/* SIGNUP BUTTON STYLES - Apply to all screens */
 .signup-button {
+  display: inline-block;
+  background: #0432c7;
   color: white;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.5rem; /* Larger base size */
   text-decoration: none;
-  display: inline-block;
-  background: none;
-  padding: 0;
-  border: none;
-  box-shadow: none;
+  padding: 1rem 3rem;
+  border: 2px solid white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .signup-button:hover {
-  color: #bfdb02; /* Optional hover effect */
+  background: #bfdb02;
+  color: #0432c7;
+  border-color: #0432c7;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-/* Remove any other .signup-button styles elsewhere in your CSS */
-  
-  .site-footer {
-    padding: 2rem 1rem;
+/* Desktop specific size */
+@media (min-width: 769px) {
+  .signup-button {
+    font-size: 2rem; /* Even larger on desktop */
+    padding: 1.2rem 4rem;
   }
 }
 
-@media (min-width: 1000px) {
-  .signup-button {  /* Desktop */
-    font-size: 1.2rem;
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .signup-button {
+    font-size: 1.3rem;
+    padding: 0.8rem 2.5rem;
   }
 }
-
 /* Fix for Instagram embed on mobile */
 @media (max-width: 500px) {
   .instagram-media {
