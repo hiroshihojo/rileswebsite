@@ -292,11 +292,12 @@ body {
 }
 
 .section-title {
-  font-size: 1.75rem;
-  font-weight: 700;
+  background: #000;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  border-bottom: 3px solid #1a1a1a;
-  padding-bottom: 0.75rem;
+  padding: 0.6rem 1rem;
   margin-bottom: 1.5rem;
   display: inline-block;
 }
