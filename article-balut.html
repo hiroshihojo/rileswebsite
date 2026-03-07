@@ -7,183 +7,25 @@
     <link rel="icon" type="image/png" href="RILESCOMBIMARK.PNG">
     <link rel="shortcut icon" type="image/png" href="RILESCOMBIMARK.PNG">
     <link rel="stylesheet" href="styles.css" />
-    <style>
-        /* Article-specific styles */
-        .article-main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
-        
-        .back-to-home {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .back-to-home:hover {
-            color: #0432c7;
-        }
-        
-        .full-article {
-            background: #fff;
-        }
-        
-        .article-header {
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-        
-        .article-header h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin: 0.5rem 0 1rem;
-            font-weight: 600;
-        }
-        
-        .article-category {
-            display: inline-block;
-            color: #bfdb02;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .article-meta {
-            color: #767676;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .article-meta span {
-            margin: 0 0.25rem;
-        }
-        
-        .article-hero-image {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-        
-        .article-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-        
-        .article-content .intro {
-            font-size: 1.2rem;
-            border-left: 4px solid #0432c7;
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .article-content h2 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            font-weight: 600;
-        }
-        
-        .article-content h3 {
-            font-size: 1.4rem;
-            margin: 1.5rem 0 1rem;
-            font-weight: 600;
-        }
-        
-        .article-content p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .article-content blockquote {
-            border-left: 4px solid #0432c7;
-            padding-left: 1.5rem;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #4a4a4a;
-            font-size: 1.2rem;
-        }
-        
-        .article-footer {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #eaeaea;
-        }
-        
-        .related-articles {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid #1a1a1a;
-        }
-        
-        .related-articles h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .related-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-        
-        .related-article {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        
-        .related-article:hover h4 {
-            color: #ffffff;
-        }
-        
-        .related-article img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 0.5rem;
-        }
-        
-        .related-article h4 {
-            font-size: 1rem;
-            margin: 0.5rem 0 0.25rem;
-            transition: color 0.2s;
-        }
-        
-        @media (max-width: 768px) {
-            .article-header h1 {
-                font-size: 2rem;
-            }
-            
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .article-main {
-                padding: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
 
 <header class="main-header">
-    <div class="logo">
-        <a href="index.html">
-            <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
-        </a>
+    <div class="header-top">
+        <div class="header-left"></div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
     </div>
-    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    
     <nav class="navbar">
         <ul class="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="#">Articles</a></li>
-            <li><a href="https://jyanafaelynn9.my.canva.site/riles-about-us">About</a></li>
+            <li><a href="about.html">About</a></li>
             <li class="dropdown">
                 <a href="#">Categories</a>
                 <ul class="dropdown-menu">
@@ -200,17 +42,16 @@
 </header>
 
 <main class="article-main">
-    <a href="index.html" class="back-to-home">← Back to Home</a>
+    <a href="index.html" class="back-to-home">← BACK TO HOME</a>
     
     <article class="full-article">
         <header class="article-header">
-            <span class="article-category">Culture</span>
+            <span class="article-category">CULTURE</span>
             <h1>Balut</h1>
             <div class="article-meta">
                 <span>By Hiroshi Hojo</span>
                 <span>·</span>
                 <span>March 6, 2026</span>
-                <span>·</span>
             </div>
         </header>
         
@@ -221,20 +62,20 @@
             
             <h2>Balut</h2>
             <p>This delicacy has been on the thumbnails of every foreign content creator trying to have their take on foods you shouldn’t try, but underneath the shell of revulsion that you might feel consuming a whole duckling is the yolk of history that it has.</p>
+            
             <img src="IMAGES\CULTURE\BALUT\HOJOMARCH6(2).png" alt="Man holding balut" class="article-hero-image">
 
-            Balut is a fertilized duck egg that has been incubated for 16 to 20 days before being boiled. Eating it is a whole story, you tap the warm shell, crack a hole, sprinkle in a bit of salt, and sip the sweet, broth—or soup—before tayo umabot sa exciting part, the duckling.
+            <p>Balut is a fertilized duck egg that has been incubated for 16 to 20 days before being boiled. Eating it is a whole story, you tap the warm shell, crack a hole, sprinkle in a bit of salt, and sip the sweet, broth—or soup—before tayo umabot sa exciting part, the duckling.</p>
 
-            Historically, the recipe likely originated in China and was brought to the Philippines by traders, where it was eventually absorbed into our streets, and for decades, the town of Pateros was the heart of the industry before spreading to other regions.
+            <p>Historically, the recipe likely originated in China and was brought to the Philippines by traders, where it was eventually absorbed into our streets, and for decades, the town of Pateros was the heart of the industry before spreading to other regions.</p>
             
             <img src="IMAGES\CULTURE\BALUT\HOJOMARCH6(3).png" alt="Balut vendor" class="article-hero-image">
             
-            Culturally, balut is connected to supernatural and sexual beliefs. It is famously regarded as an aphrodisiac intended for men to boost virility and for sexual performance. This belief is thought to be an effect of machismo, from the Spanish, on how men seek for performance enhancers. Some also believe that swallowing the embryo whole can transform a person into an aswang, a myth that contributes to the disgust some feel when eating it, usually for the first time.
+            <p>Culturally, balut is connected to supernatural and sexual beliefs. It is famously regarded as an aphrodisiac intended for men to boost virility and for sexual performance. This belief is thought to be an effect of machismo, from the Spanish, on how men seek for performance enhancers. Some also believe that swallowing the embryo whole can transform a person into an aswang, a myth that contributes to the disgust some feel when eating it, usually for the first time.</p>
             
-            <h2>Have I ever tried it</h>
-            <p>
-                I personally have never tried balut even though I can walk a few steps out of my house and have access to some. Just like a lot of people, I'm scared of eating the embryo but I've asked a lot of friends who've eaten balut how the taste and overall experience is and I usually get the most normal responses like 'masarap naman' so I've been considering it a lot. If I ever do decide tasting it, I should probably go back to this write-up and add a review of my experience.
-            </p>
+            <h2>Have I ever tried it</h2>
+            <p>I personally have never tried balut even though I can walk a few steps out of my house and have access to some. Just like a lot of people, I'm scared of eating the embryo but I've asked a lot of friends who've eaten balut how the taste and overall experience is and I usually get the most normal responses like 'masarap naman' so I've been considering it a lot. If I ever do decide tasting it, I should probably go back to this write-up and add a review of my experience.</p>
+        </div>
         
         <footer class="article-footer">
             <p><strong>Tags:</strong> 
@@ -249,13 +90,13 @@
         </footer>
     </article>
     
-    <!-- Related articles section -->
     <div class="related-articles">
         <h3>More from Culture</h3>
         <div class="related-grid">
             <a href="article-filipiniana.html" class="related-article">
-                <img src="IMAGES\CULTURE\LARIENFEB7.png" alt="Filpiniana">
-                <h4>Reject modernity, embrace tradition.</h4>
+                <img src="IMAGES\CULTURE\LARIENFEB7.png" alt="Filipiniana">
+                <h4>Reject modernity, embrace tradition</h4>
+                <span class="meta">Feb 7, 2026</span>
             </a>
         </div>
     </div>
@@ -266,7 +107,6 @@
 </footer>
 
 <script>
-    // Mobile menu toggle
     document.querySelector('.menu-toggle').addEventListener('click', function() {
         document.querySelector('.navbar').classList.toggle('active');
     });

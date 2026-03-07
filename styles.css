@@ -5,47 +5,47 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: #1a1a1a;
-    line-height: 1.5; /* Sharper line height */
+    line-height: 1.5;
     background: #ffffff;
-  }
-  
-  img {
+}
+
+img {
     max-width: 100%;
     display: block;
     border-radius: 0 !important;
-  }
-  
-  /* ==========================================================================
-     2. HEADER & NAVIGATION
-     ========================================================================== */
-  .main-header {
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+.main-header {
     background: #0432c7;
     padding: 1rem 2rem 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     position: sticky;
     top: 0;
     z-index: 100;
-  }
-  
-  .header-top {
+}
+
+.header-top {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     margin-bottom: 0.5rem;
-  }
-  
-  .logo-image {
+}
+
+.logo-image {
     height: 40px;
     width: auto;
     margin: 0 auto; 
-  }
-  
-  .menu-toggle {
+}
+
+.menu-toggle {
     display: none;
     font-size: 1.8rem;
     background: none;
@@ -53,24 +53,23 @@
     cursor: pointer;
     color: #ffffff;
     justify-self: end;
-  }
-  
-  /* Navigation Menu */
-  .navbar {
+}
+
+.navbar {
     display: flex;
     justify-content: center;
     border-top: 1px solid rgba(255,255,255,0.2);
     padding: 0.5rem 0 0;
-  }
-  
-  .nav-menu {
+}
+
+.nav-menu {
     list-style: none;
     display: flex;
     gap: 2.5rem;
     align-items: center;
-  }
-  
-  .nav-menu a {
+}
+
+.nav-menu a {
     text-decoration: none;
     color: #ffffff;
     font-weight: 500;
@@ -78,180 +77,183 @@
     letter-spacing: 0.02em;
     transition: color 0.2s;
     padding: 0.5rem 0;
-  }
-  
-  .nav-menu a:hover,
-  .nav-menu a.active {
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
     color: #bfdb02;
-  }
-  
-  .nav-menu a.active {
+}
+
+.nav-menu a.active {
     border-bottom: 2px solid #bfdb02;
-  }
-  
-  /* Dropdown System */
-  .dropdown { position: relative; }
-  
-  .dropdown-menu {
+}
+
+.dropdown { position: relative; }
+
+.dropdown-menu {
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: #0432c7;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
     padding: 0.75rem 0;
     min-width: 200px;
     display: none;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     list-style: none;
-  }
-  
-  .dropdown:hover .dropdown-menu { display: block; }
-  
-  .dropdown-menu li { padding: 0.5rem 1.25rem; }
-  
-  .dropdown-menu {
-    border-radius: 0; /* Sharp dropdowns */
+}
+
+.dropdown:hover .dropdown-menu { display: block; }
+
+.dropdown-menu li { padding: 0.5rem 1.25rem; }
+
+.dropdown-menu {
+    border-radius: 0;
     padding: 0.5rem 0;
-    box-shadow: none; /* Neater look */
+    box-shadow: none;
     border: 1px solid #000;
-  }
-  
-  .dropdown-menu a:hover {
+}
+
+.dropdown-menu a:hover {
     color: #bfdb02;
     padding-left: 1.75rem;
-  }
-  
-  /* ==========================================================================
-     3. MAIN CONTENT LAYOUT
-     ========================================================================== */
-  .content-wrapper {
+}
+
+/* ==========================================================================
+   3. MAIN CONTENT LAYOUT
+   ========================================================================== */
+.content-wrapper {
     max-width: 1400px;
     margin: 2.5rem auto;
     padding: 0 2rem;
-  }
-  
-  .featured-grid {
+}
+
+.featured-grid {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-  }
-  
-  /* ==========================================================================
-     4. ARTICLE CARDS (PRIMARY, SECONDARY, CATEGORY)
-     ========================================================================== */
-  
-  /* Shared Tag & Meta Styles */
-  .category-tag {
+}
+
+/* ==========================================================================
+   4. ARTICLE CARDS (PRIMARY, SECONDARY, CATEGORY)
+   ========================================================================== */
+
+.category-tag {
     background: #000;
     color: #fff;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     padding: 0.6rem 1rem;
     margin-bottom: 1.5rem;
     display: inline-block;
-  }
-  
-  .meta {
+    text-transform: uppercase;
+}
+
+.meta {
     color: #767676;
     font-size: 0.85rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-  }
-  
-  .meta::before {
+}
+
+.meta::before {
     content: "•";
     color: #0432c7;
     font-weight: bold;
-  }
-  
-  /* Primary Post (Clickable Block) */
-  a.featured-post.primary {
+}
+
+/* Primary Post (Clickable Block) */
+a.featured-post.primary {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
     background: #0432c7;
-    border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease;
-  }
-  
-  a.featured-post.primary:hover { transform: translateY(-5px); }
-  
-  .featured-post.primary img {
+}
+
+a.featured-post.primary:hover { transform: translateY(-5px); }
+
+.featured-post.primary img {
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
     transition: transform 0.5s;
-  }
-  
-  a.featured-post.primary:hover img { transform: scale(1.05); }
-  
-  .featured-post.primary .featured-content { padding: 2rem 2rem 2rem 0; }
-  
-  .featured-post h2 {
+}
+
+a.featured-post.primary:hover img { transform: scale(1.05); }
+
+.featured-post.primary .featured-content { padding: 2rem 2rem 2rem 0; }
+
+.featured-post h2 {
     font-size: 2.2rem;
     color: #ffffff;
     line-height: 1.2;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
-  }
+    font-weight: 700;
+}
 
-  .excerpt {
+.excerpt {
     color: #ffffff;
     font-size: 0.85rem;
     display: flex;
     gap: 0.5rem;
-  }
-  
-  
-  /* Secondary & Category Grids */
-  .secondary-grid {
+    font-weight: 500;
+}
+
+.secondary-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-  }
-  
-  .categories-grid {
+}
+
+.categories-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-top: 40px;
-  }
-  
-  .featured-post.secondary, .category-post {
+}
+
+.featured-post.secondary, .category-post {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     text-decoration: none;
     color: inherit;
     transition: transform 0.2s;
-  }
-  
-  .featured-post.secondary:hover, .category-post:hover { transform: translateY(-4px); }
-  
-  .featured-post.secondary img, .category-post img {
+}
+
+.featured-post.secondary:hover, .category-post:hover { transform: translateY(-4px); }
+
+.featured-post.secondary img, .category-post img {
     aspect-ratio: 16/9;
     object-fit: cover;
-    border-radius: 12px;
-  }
-  
-  /* ==========================================================================
-     5. MEDIA & EMBEDS (INSTAGRAM/SPOTIFY)
-     ========================================================================== */
-  .media-grid {
+}
+
+.featured-post.secondary h3, .category-post h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   5. MEDIA & EMBEDS (INSTAGRAM/SPOTIFY)
+   ========================================================================== */
+.media-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin: 2rem 0;
-  }
-  
-  .section-title {
+}
+
+.section-title {
     background: #000;
     color: #fff;
     font-size: 2rem;
@@ -259,62 +261,255 @@
     padding: 0.6rem 1rem;
     margin-bottom: 1.5rem;
     display: inline-block;
-  }
-  
-  .spotify-embed-container iframe {
-    border-radius: 0; 
-  }
-  
-  /* ==========================================================================
-     6. ABOUT PAGE SPECIFIC STYLES
-     ========================================================================== */
-  .about-hero {
-    padding: 4rem 2rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .about-hero h1 {
-    font-size: 5rem;
     text-transform: uppercase;
-  }
-  
-  .style-block {
+}
+
+.spotify-embed-container iframe {
+    border-radius: 0; 
+}
+
+/* ==========================================================================
+   6. ARTICLE PAGE STYLES (CONSOLIDATED)
+   ========================================================================== */
+.article-main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.back-to-home {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.back-to-home:hover {
+    color: #0432c7;
+}
+
+.full-article {
+    background: #fff;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.article-header h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin: 0.5rem 0 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.article-category {
+    display: inline-block;
     background: #000;
     color: #fff;
-    padding: 3rem;
-    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+}
+
+.article-meta {
+    color: #767676;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.article-meta span {
+    margin: 0 0.25rem;
+}
+
+.article-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
     margin-bottom: 2rem;
-  }
-  
-  .mission-text {
+}
+
+.article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+.article-content .intro {
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-left: 4px solid #0432c7;
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.article-content h2 {
+    font-size: 2rem;
+    margin: 2.5rem 0 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    font-weight: 600;
+}
+
+.article-content p {
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #0432c7;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #4a4a4a;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eaeaea;
+}
+
+.article-footer p {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.article-footer a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.article-footer a:hover {
+    border-bottom-color: #0432c7;
+    color: #0432c7;
+}
+
+.related-articles {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid #1a1a1a;
+}
+
+.related-articles h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.related-article {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.related-article:hover h4 {
+    color: #0432c7;
+}
+
+.related-article img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+}
+
+.related-article h4 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.2s;
+}
+
+.related-article .meta {
+    font-size: 0.85rem;
+    color: #767676;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   7. ABOUT PAGE SPECIFIC STYLES
+   ========================================================================== */
+.about-grid {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.style-block {
+    background: #000;
+    color: #fff;
+    padding: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.mission-text {
     font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.5;
     margin-bottom: 2rem;
     color: #fff !important;
-  }
-  
-  .about-btn {
+}
+
+.mission-text:last-of-type {
+    margin-bottom: 0;
+}
+
+.link-box-container {
+    margin-top: 2rem;
+}
+
+.about-btn {
     display: inline-block;
     border: 2px solid #000;
-    padding: 0.5rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     color: #000;
     text-decoration: none;
     font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: all 0.2s ease;
-  }
-  
-  .about-btn:hover {
+}
+
+.about-btn:hover {
     background: #000;
     color: #fff;
-  }
-  
-  /* ==========================================================================
-     7. BANNERS & FOOTER
-     ========================================================================== */
-  .team-signup-banner {
+}
+
+/* ==========================================================================
+   8. BANNERS & FOOTER
+   ========================================================================== */
+.team-signup-banner {
     min-height: 300px;
     display: flex;
     align-items: center;
@@ -323,23 +518,35 @@
     background-size: cover;
     background-position: center;
     position: relative;
-  }
-  
-  .team-signup-banner::before {
+}
+
+.team-signup-banner::before {
     content: '';
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1;
-  }
-  
-  .banner-content {
+}
+
+.banner-content {
     position: relative;
     z-index: 2;
     color: white;
-  }
-  
-  .signup-button {
+}
+
+.banner-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.banner-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.signup-button {
     display: inline-block;
     border: 2px solid #ffffff;
     padding: 0.5rem 1.5rem;
@@ -348,41 +555,78 @@
     font-weight: 700;
     text-transform: uppercase;
     transition: all 0.2s ease;
-  }
-  
-  .signup-button:hover {
+}
+
+.signup-button:hover {
     background: #ffffff;
     color: #000000;
-  }
-  
-  .site-footer {
+}
+
+.site-footer {
     text-align: center;
     padding: 3rem 2rem;
     background: #000;
     color: #fff;
-  }
-  
-  /* ==========================================================================
-     8. MEDIA QUERIES (RESPONSIVE)
-     ========================================================================== */
-  @media (max-width: 900px) {
+}
+
+.site-footer p {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   9. MEDIA QUERIES (RESPONSIVE)
+   ========================================================================== */
+@media (max-width: 900px) {
     a.featured-post.primary { grid-template-columns: 1fr; }
     .featured-post.primary .featured-content { padding: 1.5rem 2rem; }
     .media-grid, .categories-grid { grid-template-columns: 1fr; }
-  }
-  
-  @media (max-width: 768px) {
+    
+    .article-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
     .menu-toggle { display: block; }
     .navbar { display: none; }
     .navbar.active { display: block; }
     .nav-menu { flex-direction: column; }
     
     .featured-post.secondary, .category-post {
-      flex-direction: row;
+        flex-direction: row;
     }
     
     .featured-post.secondary img, .category-post img {
-      width: 100px;
-      height: 80px;
+        width: 100px;
+        height: 80px;
     }
-  }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-main {
+        padding: 1rem;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+    
+    .article-content .intro {
+        font-size: 1.1rem;
+    }
+    
+    .article-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .style-block {
+        padding: 2rem;
+    }
+    
+    .mission-text {
+        font-size: 1.2rem;
+    }
+}
