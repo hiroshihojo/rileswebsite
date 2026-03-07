@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About – Riles Magazine</title>
+    <link rel="icon" type="image/x-icon" href="RILESCOMBIMARK.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="RILESCOMBIMARK.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <style>
+        /* about-specific refinements – inherits all main styles, only additions */
+        .about-hero {
+            background: #0432c7;
+            color: white;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .about-hero .hero-dek {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255,255,255,0.85);
+            font-weight: 400;
+        }
+        .about-grid {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            color: #2a2a2a;
+            line-height: 1.7;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin: 2.5rem 0 1rem;
+            background: #000;
+            color: #fff;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+        }
+        .about-text h2:first-of-type {
+            margin-top: 0;
+        }
+        .mission-block {
+            background: #f4f4f4;
+            padding: 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            border-left: 8px solid #bfdb02;
+        }
+        .mission-block p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 0;
+            color: #1a1a1a;
+        }
+        .team-spotlight {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
+        }
+        .team-spotlight h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            border-bottom: 3px solid #0432c7;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .team-list {
+            list-style: none;
+            padding: 0;
+        }
+        .team-list li {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        .team-list .role {
+            min-width: 100px;
+            color: #0432c7;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+        }
+        .team-list .name {
+            font-size: 1.2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0 3rem 2rem;
+            font-weight: 600;
+            color: #0432c7;
+            text-decoration: none;
+            border-bottom: 2px solid #bfdb02;
+            padding-bottom: 0.2rem;
+        }
+        .back-link:hover {
+            color: #bfdb02;
+            border-bottom-color: #0432c7;
+        }
+        @media (max-width: 800px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .about-hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        @media (max-width: 500px) {
+            .about-hero h1 { font-size: 2.2rem; }
+            .team-list li { flex-wrap: wrap; gap: 0.2rem; }
+            .team-list .role { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="header-top">
+        <div class="header-left"></div> <!-- spacer -->
+        <div class="logo">
+            <a href="index.html">
+                <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+    
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="about.html" class="active">About</a></li>  <!-- active state -->
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#radar">Radar</a></li>
+                    <li><a href="index.html#culture">Culture</a></li>
+                    <li><a href="index.html#art-design">Art & Design</a></li>
+                    <li><a href="index.html#music-film">Music & Film</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#gaming">Gaming</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- about page hero – inspired by yokogao structure but with Riles colours -->
+<div class="about-hero">
+    <h1>About Riles</h1>
+    <div class="hero-dek">a brand built around the tracks — *LIFE. *STYLE. *CULTURE. Riles Magazine is a Filipino publication by the youth and for the youth.</div>
+</div>
+
+<!-- back to home link (optional, but handy) -->
+<a href="index.html" class="back-link">← back to home</a>
+
+<!-- main about content: two-column grid (text + team) -->
+<div class="about-grid">
+    <!-- left column: longform story / mission -->
+    <div class="about-text">
+        <h2>what is Riles?</h2>
+        <p>Riles aims to create a living archive where Filipino youth build a grasp on our own identity, by realizing the relevance of local art, culture, and talent. </p>
+        
+        <div class="mission-block">
+            <p>Our mission is to be the spotlight for Filipino creatives, stories, and stirs, bringing content that forms what our youth are drawn to, while keeping the local soul alive in a community shaped by global influences.</p>
+        </div>
+    </div>
+</div>
+
+
+<footer class="site-footer">
+    <p>© 2026 Riles Magazine. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
