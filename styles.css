@@ -17,7 +17,7 @@
   img {
     max-width: 100%;
     display: block;
-    border-radius: 0 !important; /* Forces sharp corners on all images */
+    border-radius: 0 !important;
   }
   
   /* ==========================================================================
@@ -25,7 +25,7 @@
      ========================================================================== */
   .main-header {
     background: #0432c7;
-    padding: 0.75rem 1.5rem; /* Tighter padding */
+    padding: 1rem 2rem 0.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.2);
     position: sticky;
     top: 0;
@@ -36,42 +36,80 @@
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   
   .logo-image {
-    height: 35px; /* Slightly smaller logo */
+    height: 40px;
     width: auto;
     margin: 0 auto; 
   }
   
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    justify-self: end;
+  }
+  
+  /* Navigation Menu */
   .navbar {
     display: flex;
     justify-content: center;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 0.4rem 0 0;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 0.5rem 0 0;
   }
   
   .nav-menu {
     list-style: none;
     display: flex;
-    gap: 1.5rem; /* Tighter gap */
+    gap: 2.5rem;
     align-items: center;
   }
   
   .nav-menu a {
     text-decoration: none;
     color: #ffffff;
-    font-weight: 600; /* Bolder for impact */
-    font-size: 0.85rem; /* Smaller, cleaner text */
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
     transition: color 0.2s;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-menu a:hover,
+  .nav-menu a.active {
+    color: #bfdb02;
   }
   
   .nav-menu a.active {
     border-bottom: 2px solid #bfdb02;
   }
+  
+  /* Dropdown System */
+  .dropdown { position: relative; }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0432c7;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 0.75rem 0;
+    min-width: 200px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    list-style: none;
+  }
+  
+  .dropdown:hover .dropdown-menu { display: block; }
+  
+  .dropdown-menu li { padding: 0.5rem 1.25rem; }
   
   .dropdown-menu {
     border-radius: 0; /* Sharp dropdowns */
@@ -80,109 +118,237 @@
     border: 1px solid #000;
   }
   
+  .dropdown-menu a:hover {
+    color: #bfdb02;
+    padding-left: 1.75rem;
+  }
+  
   /* ==========================================================================
      3. MAIN CONTENT LAYOUT
      ========================================================================== */
   .content-wrapper {
-    max-width: 1200px; /* Tighter container */
-    margin: 1.5rem auto; /* Reduced margin */
-    padding: 0 1.5rem;
+    max-width: 1400px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
   }
   
   .featured-grid {
     display: flex;
     flex-direction: column;
-    gap: 2rem; /* Reduced gap between sections */
+    gap: 3rem;
   }
   
   /* ==========================================================================
-     4. ARTICLE CARDS
+     4. ARTICLE CARDS (PRIMARY, SECONDARY, CATEGORY)
      ========================================================================== */
   
+  /* Shared Tag & Meta Styles */
   .category-tag {
     font-size: 0.7rem;
     letter-spacing: 0.15em;
     padding: 0.2rem 0.5rem;
-    border-radius: 0; /* Sharp tags */
+    border-radius: 0;
     margin-bottom: 0.75rem;
   }
   
   .meta {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
+    color: #767676;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   
-  /* Primary Post */
+  .meta::before {
+    content: "•";
+    color: #0432c7;
+    font-weight: bold;
+  }
+  
+  /* Primary Post (Clickable Block) */
   a.featured-post.primary {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem; /* Tighter gap */
-    border-radius: 0; /* Sharp corners */
-    border: 1px solid #eee; /* Light frame for neatness */
+    gap: 2rem;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
   }
   
-  .featured-post.primary .featured-content { 
-      padding: 1.5rem; 
+  a.featured-post.primary:hover { transform: translateY(-5px); }
+  
+  .featured-post.primary img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.5s;
   }
+  
+  a.featured-post.primary:hover img { transform: scale(1.05); }
+  
+  .featured-post.primary .featured-content { padding: 2rem 2rem 2rem 0; }
   
   .featured-post h2 {
-    font-size: 2rem; /* Sharper heading size */
-    font-weight: 800;
-    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
   
   /* Secondary & Category Grids */
-  .secondary-grid, .categories-grid {
-    gap: 1.5rem; /* Tighter grid spacing */
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+  }
+  
+  .featured-post.secondary, .category-post {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+  }
+  
+  .featured-post.secondary:hover, .category-post:hover { transform: translateY(-4px); }
+  
   .featured-post.secondary img, .category-post img {
-    border-radius: 0; /* Sharp corners */
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 12px;
   }
   
   /* ==========================================================================
-     5. MEDIA & EMBEDS
-     ========================================================================= */
+     5. MEDIA & EMBEDS (INSTAGRAM/SPOTIFY)
+     ========================================================================== */
+  .media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
   .section-title {
-    font-size: 1.5rem;
-    padding: 0.4rem 0.8rem;
-    margin-bottom: 1rem;
+    background: #000;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
   }
   
   .spotify-embed-container iframe {
-    border-radius: 0; /* Sharp Spotify embed */
+    border-radius: 0; 
   }
   
   /* ==========================================================================
-     6. ABOUT PAGE & BUTTONS
+     6. ABOUT PAGE SPECIFIC STYLES
      ========================================================================== */
+  .about-hero {
+    padding: 4rem 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-hero h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+  
   .style-block {
-    padding: 2.5rem;
-    border-radius: 0; /* Sharp mission box */
+    background: #000;
+    color: #fff;
+    padding: 3rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
   }
   
   .mission-text {
-    font-size: 1.25rem;
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: #fff !important;
   }
   
-  .about-btn, .signup-button {
-    border-radius: 0 !important; /* Sharp buttons */
-    padding: 0.75rem 1.5rem;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+  .about-btn {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 0.5rem 1.5rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  
+  .about-btn:hover {
+    background: #000;
+    color: #fff;
   }
   
   /* ==========================================================================
-     7. FOOTER
+     7. BANNERS & FOOTER
      ========================================================================== */
-  .site-footer {
-    padding: 2rem;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
+  .team-signup-banner {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .team-signup-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+  
+  .signup-button {
+    display: inline-block;
+    border: 2px solid #ffffff;
+    padding: 0.5rem 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
     text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  
+  .signup-button:hover {
+    background: #ffffff;
+    color: #000000;
+  }
+  
+  .site-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #000;
+    color: #fff;
   }
   
   /* ==========================================================================
