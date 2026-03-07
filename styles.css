@@ -1,803 +1,386 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  color: #1a1a1a;
-  line-height: 1.6;
-  background: #ffffff;
-}
-
-
-.main-header {
-  background: #0432c7;
-  padding: 1rem 2rem 0.5rem;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-top {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.logo {
-  text-align: center;
-}
-
-.logo-image {
-  height: 40px;
-  width: auto;
-  display: block;
-  margin: 0 auto; 
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #ffffff;
-  justify-self: end;
-}
-
-/* Navigation below logo */
-.navbar {
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  padding: 0.5rem 0 0;
-}
-
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 2.5rem;
-  align-items: center;
-  padding: 0;
-  margin: 0; /* Reset margin */
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-  padding: 0.5rem 0;
-  display: inline-block;
-}
-
-.nav-menu a:hover,
-.nav-menu a.active {
-  color: #bfdb02;
-}
-
-.nav-menu a.active {
-  border-bottom: 2px solid #bfdb02;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #0432c7;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  padding: 0.75rem 0;
-  min-width: 200px;
-  display: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  list-style: none;
-  z-index: 10;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.dropdown-menu li {
-  padding: 0.5rem 1.25rem;
-}
-
-.dropdown-menu a {
-  display: block;
-  font-weight: normal;
-  font-size: 0.9rem;
-  color: white;
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-.dropdown-menu a:hover {
-  color: #bfdb02;
-  padding-left: 1.75rem; /* Fixed inconsistent padding */
-}
-
-/* MAIN LAYOUT - NO SIDEBAR */
-.content-wrapper {
-  max-width: 1400px;
-  margin: 2.5rem auto;
-  padding: 0 2rem;
-}
-
-/* LEFT COLUMN */
-.featured-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-/* Primary Featured Post */
-.featured-post.primary {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  padding: 0;
-}
-
-.featured-post.primary img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  transition: transform 0.5s;
-  display: block; /* Remove extra space below image */
-}
-
-.featured-post.primary:hover img {
-  transform: scale(1.05);
-}
-
-.featured-post.primary .featured-content {
-  padding: 2rem 2rem 2rem 0;
-}
-
-.category-tag {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #bfdb02;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 1rem;
-  background: #0432c7;
-  padding: 0.25rem 0.75rem;
-  border-radius: 20px;
-}
-
-.featured-post h2 {
-  font-size: 2.2rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.featured-post .excerpt {
-  color: #4a4a4a;
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
-
-.meta {
-  color: #767676;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.meta::before {
-  content: "•";
-  color: #0432c7;
-  font-weight: bold;
-}
-
-/* Secondary Grid - 2 COLUMNS */
-.secondary-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-
-.featured-post.secondary {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s;
-}
-
-.featured-post.secondary:hover {
-  transform: translateY(-4px);
-}
-
-.featured-post.secondary img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-.featured-post.secondary h3 {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  font-weight: 600;
-  margin: 0;
-}
-
-/* Media Grid - 2 columns with compact spacing */
-.media-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin: 2rem 0;
-}
-
-.media-section {
-  width: 100%;
-}
-
-.instagram-embed-container {
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.instagram-media {
-  min-width: auto !important; /* Override Instagram's default min-width */
-  width: 100% !important;
-}
-
-.spotify-embed-container {
-  width: 100%;
-}
-
-.spotify-embed-container iframe {
-  border-radius: 12px;
-  width: 100%;
-  height: 352px;
-  border: none; /* Remove iframe border */
-}
-
-/* Categories Grid - 3 columns */
-.categories-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-}
-
-.category-section {
-  margin-bottom: 0;
-}
-
-.section-title {
-  background: #000;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  padding: 0.6rem 1rem;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-}
-
-/* Category Posts - Larger size */
-.category-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-}
-
-.category-post {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s;
-}
-
-.category-post:hover {
-  transform: translateY(-4px);
-}
-
-.category-post img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-}
-
-.category-post h3 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.4;
-  margin: 0.5rem 0 0.25rem;
-}
-
-.category-post .meta {
-  margin-top: 0.25rem;
-}
-
-/* TEAM SIGNUP BOTTOM BANNER */
-.team-signup-banner {
-  width: 100%;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 4rem 0 0;
-  padding: 4rem 2rem;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.team-signup-banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-}
-
-.banner-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  color: white;
-}
-
-.banner-content h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: rgba(255,255,255,0.9);
-}
-
-/* FOOTER */
-.site-footer {
-  text-align: center;
-  padding: 3rem 2rem;
-  border-top: 1px solid #000000;
-  color: #ffffff;
-  font-size: 0.9rem;
-  background: #000000;
-}
-
-/* MOBILE */
-@media (max-width: 1200px) {
-  .secondary-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 1100px) {
-  .content-wrapper { 
-    padding: 0 1.5rem; 
-  }
-  .categories-grid {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 900px) {
-  .featured-post.primary { 
-    grid-template-columns: 1fr; 
-  }
-  .featured-post.primary .featured-content { 
-    padding: 0 2rem 2rem; 
-  }
-  .featured-post h2 {
-    font-size: 1.8rem;
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   
-  .media-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+    background: #ffffff;
   }
   
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+  img {
+    max-width: 100%;
+    display: block;
   }
-}
-
-@media (max-width: 768px) {
-  /* Header improvements */
-  .main-header { 
-    padding: 0.75rem 1rem 0.25rem;
+  
+  /* ==========================================================================
+     2. HEADER & NAVIGATION
+     ========================================================================== */
+  .main-header {
+    background: #0432c7;
+    padding: 1rem 2rem 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
   
   .header-top {
+    display: grid;
     grid-template-columns: 1fr auto 1fr;
-    margin-bottom: 0.25rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
   }
   
-  .logo-image { 
-    height: 28px; 
+  .logo-image {
+    height: 40px;
+    width: auto;
+    margin: 0 auto; 
   }
   
-  .menu-toggle { 
-    display: block; 
+  .menu-toggle {
+    display: none;
     font-size: 1.8rem;
-    color: white;
     background: none;
     border: none;
-    padding: 0.25rem;
-    line-height: 1;
+    cursor: pointer;
+    color: #ffffff;
     justify-self: end;
   }
   
-  /* Mobile menu */
-  .navbar { 
-    display: none; 
-    width: 100%; 
-    background: #0432c7;
+  /* Navigation Menu */
+  .navbar {
+    display: flex;
+    justify-content: center;
     border-top: 1px solid rgba(255,255,255,0.2);
-    margin-top: 0.5rem;
+    padding: 0.5rem 0 0;
   }
   
-  .navbar.active { 
-    display: block; 
-  }
-  
-  .nav-menu { 
-    flex-direction: column; 
-    gap: 0; 
-    align-items: stretch; 
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
-  
-  .nav-menu li {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    width: 100%;
-  }
-  
-  .nav-menu li:last-child {
-    border-bottom: none;
+  .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
   }
   
   .nav-menu a {
-    display: block;
-    padding: 1rem 1.5rem;
-    color: white;
-    font-size: 1rem;
     text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+    padding: 0.5rem 0;
   }
   
   .nav-menu a:hover,
   .nav-menu a.active {
-    background: rgba(255,255,255,0.1);
     color: #bfdb02;
   }
   
   .nav-menu a.active {
-    border-bottom: none;
+    border-bottom: 2px solid #bfdb02;
   }
   
-  /* Dropdown mobile */
-  .dropdown > a {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  /* Dropdown System */
+  .dropdown { position: relative; }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0432c7;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 0.75rem 0;
+    min-width: 200px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    list-style: none;
   }
   
-  .dropdown > a::after {
-    content: '▼';
-    font-size: 0.7rem;
-    margin-left: 0.5rem;
-    color: white;
-  }
+  .dropdown:hover .dropdown-menu { display: block; }
   
-  .dropdown-menu { 
-    position: static; 
-    display: none; 
-    border: none; 
-    background: rgba(0,0,0,0.2);
-    box-shadow: none;
-    min-width: auto;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    transform: none;
-    left: auto;
-  }
-  
-  .dropdown.active .dropdown-menu {
-    display: block;
-  }
-  
-  .dropdown-menu li {
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-  }
-  
-  .dropdown-menu li:last-child {
-    border-bottom: none;
-  }
+  .dropdown-menu li { padding: 0.5rem 1.25rem; }
   
   .dropdown-menu a {
-    padding: 0.75rem 2rem;
+    font-weight: normal;
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
+    color: white;
+    white-space: nowrap;
+    transition: padding 0.2s;
   }
   
   .dropdown-menu a:hover {
-    background: rgba(255,255,255,0.1);
-    padding-left: 2.25rem;
+    color: #bfdb02;
+    padding-left: 1.75rem;
   }
   
-  /* Mobile layout adjustments */
-  .content-wrapper { 
-    padding: 1rem; 
-    margin: 1rem auto;
-  }
-  
-  .secondary-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  /* ==========================================================================
+     3. MAIN CONTENT LAYOUT
+     ========================================================================== */
+  .content-wrapper {
+    max-width: 1400px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
   }
   
   .featured-grid {
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
   }
   
-  .featured-post.primary {
-    border-radius: 12px;
+  /* ==========================================================================
+     4. ARTICLE CARDS (PRIMARY, SECONDARY, CATEGORY)
+     ========================================================================== */
+  
+  /* Shared Tag & Meta Styles */
+  .category-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #bfdb02;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+    background: #0432c7;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
   }
+  
+  .meta {
+    color: #767676;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .meta::before {
+    content: "•";
+    color: #0432c7;
+    font-weight: bold;
+  }
+  
+  /* Primary Post (Clickable Block) */
+  a.featured-post.primary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  
+  a.featured-post.primary:hover { transform: translateY(-5px); }
   
   .featured-post.primary img {
-    aspect-ratio: 16/9;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.5s;
   }
   
-  .featured-post.primary .featured-content {
-    padding: 1.5rem;
-  }
+  a.featured-post.primary:hover img { transform: scale(1.05); }
+  
+  .featured-post.primary .featured-content { padding: 2rem 2rem 2rem 0; }
   
   .featured-post h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
   
-  .featured-post .excerpt {
-    font-size: 1rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .featured-post.secondary {
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .featured-post.secondary img {
-    width: 100px;
-    height: 80px;
-    aspect-ratio: 16/9;
-  }
-  
-  .featured-post.secondary h3 {
-    font-size: 1rem;
-    margin: 0;
-    flex: 1;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-  }
-  
-  .media-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 1.5rem 0;
+  /* Secondary & Category Grids */
+  .secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
   
   .categories-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
   }
   
-  .category-post {
-    flex-direction: row;
-    align-items: center;
+  .featured-post.secondary, .category-post {
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
   }
   
-  .category-post img {
-    width: 120px;
-    height: 80px;
+  .featured-post.secondary:hover, .category-post:hover { transform: translateY(-4px); }
+  
+  .featured-post.secondary img, .category-post img {
     aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 12px;
   }
   
-  .category-post h3 {
-    font-size: 1rem;
-    margin: 0;
-    flex: 1;
+  /* ==========================================================================
+     5. MEDIA & EMBEDS (INSTAGRAM/SPOTIFY)
+     ========================================================================== */
+  .media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
   }
   
-  .category-post .meta {
-    display: none; /* Hide meta on mobile for cleaner look */
-  }
-  
-  /* Team signup banner mobile */
-  .team-signup-banner {
-    min-height: 250px;
-    padding: 3rem 1.5rem;
-    margin-top: 2rem;
-  }
-  
-  .banner-content h2 {
-    font-size: 2.2rem;
-  }
-  
-  .banner-content p {
-    font-size: 1rem;
+  .section-title {
+    background: #000;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 0.6rem 1rem;
     margin-bottom: 1.5rem;
+    display: inline-block;
   }
-}
-
-/* SIGNUP BUTTON STYLES - Apply to all screens */
-.signup-button {
-  display: inline-block;
-  background: #0432c7;
-  color: white;
-  font-weight: 700;
-  font-size: 1.5rem; /* Larger base size */
-  text-decoration: none;
-  padding: 1rem 3rem;
-  border: 2px solid white;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-.signup-button:hover {
-  background: #bfdb02;
-  color: #0432c7;
-  border-color: #0432c7;
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
-
-/* Desktop specific size */
-@media (min-width: 769px) {
+  
+  .spotify-embed-container iframe {
+    border-radius: 12px;
+    width: 100%;
+  }
+  
+  /* ==========================================================================
+     6. ABOUT PAGE SPECIFIC STYLES
+     ========================================================================== */
+  .about-hero {
+    padding: 4rem 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .about-hero h1 {
+    font-size: 5rem;
+    text-transform: uppercase;
+  }
+  
+  .style-block {
+    background: #000;
+    color: #fff;
+    padding: 3rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+  }
+  
+  .mission-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: #fff !important;
+  }
+  
+  .about-btn {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 0.5rem 1.5rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+  }
+  
+  .about-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+  
+  /* ==========================================================================
+     7. BANNERS & FOOTER
+     ========================================================================== */
+  .team-signup-banner {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .team-signup-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+  }
+  
   .signup-button {
-    font-size: 2rem; /* Even larger on desktop */
-    padding: 1.2rem 4rem;
+    display: inline-block;
+    background: #0432c7;
+    color: white;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border: 2px solid white;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
   }
-}
-
-/* Mobile adjustment */
-@media (max-width: 768px) {
-  .signup-button {
-    font-size: 1.3rem;
-    padding: 0.8rem 2.5rem;
+  
+  .signup-button:hover {
+    background: #bfdb02;
+    color: #0432c7;
+    transform: scale(1.05);
   }
-}
-/* Fix for Instagram embed on mobile */
-@media (max-width: 500px) {
-  .instagram-media {
-    min-width: 0 !important;
+  
+  .site-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #000;
+    color: #fff;
   }
-}
-
-.style-block {
-  background: #000; /* Deep black background */
-  color: #fff; /* White text */
-  padding: 3rem;
-  border-radius: 4px; /* Slight rounding or keep 0 for sharper look */
-  margin-bottom: 2rem;
-}
-
-.mission-text {
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  color: #fff !important; /* Overriding previous text colors */
-}
-
-.link-box-container {
-  margin-top: 2rem;
-}
-
-.about-btn {
-  display: inline-block;
-  border: 2px solid #000;
-  padding: 0.5rem 1.5rem;
-  color: #000;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: all 0.2s ease;
-}
-
-.about-btn:hover {
-  background: #000;
-  color: #fff;
-}
-
-.about-hero {
-  background: #fff; 
-  color: #000;
-  border-bottom: none;
-  text-align: left;
-  padding: 4rem 2rem 1rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about-hero h1 {
-  font-family: 'Inter', sans-serif;
-  font-size: 5rem;
-  text-transform: uppercase;
-}
-
-/* Ensure the primary link block behaves like a grid */
-a.featured-post.primary {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  align-items: center;
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-/* Add a subtle lift effect when hovering anywhere on the post */
-a.featured-post.primary:hover {
-  transform: translateY(-5px);
-}
-
-/* Keep image scaling consistent */
-a.featured-post.primary:hover img {
-  transform: scale(1.05);
-}
-
-/* Mobile fix for the clickable primary post */
-@media (max-width: 900px) {
-  a.featured-post.primary {
-      grid-template-columns: 1fr;
+  
+  /* ==========================================================================
+     8. MEDIA QUERIES (RESPONSIVE)
+     ========================================================================== */
+  @media (max-width: 900px) {
+    a.featured-post.primary { grid-template-columns: 1fr; }
+    .featured-post.primary .featured-content { padding: 1.5rem 2rem; }
+    .media-grid, .categories-grid { grid-template-columns: 1fr; }
   }
-}
+  
+  @media (max-width: 768px) {
+    .menu-toggle { display: block; }
+    .navbar { display: none; }
+    .navbar.active { display: block; }
+    .nav-menu { flex-direction: column; }
+    
+    .featured-post.secondary, .category-post {
+      flex-direction: row;
+    }
+    
+    .featured-post.secondary img, .category-post img {
+      width: 100px;
+      height: 80px;
+    }
+  }
