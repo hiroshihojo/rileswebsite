@@ -171,7 +171,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: center;
-    background: #000000;
+    background: #0432c7;
     border-radius: 16px;
     overflow: hidden;
     text-decoration: none;
@@ -199,6 +199,14 @@
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
+
+  .excerpt {
+    color: #ffffff;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
   
   /* Secondary & Category Grids */
   .secondary-grid {
