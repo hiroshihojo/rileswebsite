@@ -12,28 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
         /* about-specific refinements – inherits all main styles, only additions */
-        .about-hero {
-            background: #0432c7;
-            color: white;
-            padding: 4rem 2rem;
-            margin-bottom: 3rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
-        }
-        .about-hero h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-        .about-hero .hero-dek {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin: 0 auto;
-            color: rgba(255,255,255,0.85);
-            font-weight: 400;
-        }
         .about-grid {
             max-width: 1200px;
             margin: 0 auto 4rem;
@@ -62,70 +40,7 @@
         .about-text h2:first-of-type {
             margin-top: 0;
         }
-        .mission-block {
-            background: #f4f4f4;
-            padding: 2rem;
-            border-radius: 24px;
-            margin: 2rem 0;
-            border-left: 8px solid #bfdb02;
-        }
-        .mission-block p {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 0;
-            color: #1a1a1a;
-        }
-        .team-spotlight {
-            background: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 24px;
-            padding: 2rem;
-            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
-        }
-        .team-spotlight h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            border-bottom: 3px solid #0432c7;
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-        .team-list {
-            list-style: none;
-            padding: 0;
-        }
-        .team-list li {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-        .team-list .role {
-            min-width: 100px;
-            color: #0432c7;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.03em;
-        }
-        .team-list .name {
-            font-size: 1.2rem;
-        }
-        .back-link {
-            display: inline-block;
-            margin: 2rem 0 3rem 2rem;
-            font-weight: 600;
-            color: #0432c7;
-            text-decoration: none;
-            border-bottom: 2px solid #bfdb02;
-            padding-bottom: 0.2rem;
-        }
-        .back-link:hover {
-            color: #bfdb02;
-            border-bottom-color: #0432c7;
-        }
+
         @media (max-width: 800px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -176,23 +91,23 @@
 </header>
 
 <!-- about page hero – inspired by yokogao structure but with Riles colours -->
-<div class="about-hero">
-    <h1>About Riles</h1>
-    <div class="hero-dek">a brand built around the tracks — *LIFE. *STYLE. *CULTURE. Riles Magazine is a Filipino publication by the youth and for the youth.</div>
-</div>
-
-<!-- back to home link (optional, but handy) -->
-<a href="index.html" class="back-link">← back to home</a>
-
-<!-- main about content: two-column grid (text + team) -->
 <div class="about-grid">
-    <!-- left column: longform story / mission -->
     <div class="about-text">
-        <h2>what is Riles?</h2>
-        <p>Riles aims to create a living archive where Filipino youth build a grasp on our own identity, by realizing the relevance of local art, culture, and talent. </p>
-        
-        <div class="mission-block">
-            <p>Our mission is to be the spotlight for Filipino creatives, stories, and stirs, bringing content that forms what our youth are drawn to, while keeping the local soul alive in a community shaped by global influences.</p>
+        <div class="style-block">
+            <p class="mission-text">
+                Riles aims to create a living archive where Filipino youth build a grasp on our own identity, 
+                by realizing the relevance of local art, culture, and talent.
+            </p>
+            <p class="mission-text">
+                Our mission is to be the spotlight for Filipino creatives, stories, and stirs, bringing content 
+                that forms what our youth are drawn to, while keeping the local soul alive.
+            </p>
+        </div>
+
+        <div class="link-box-container">
+            <a href="https://jyanafaelynn9.my.canva.site/riles-about-us" target="_blank" class="about-btn">
+                CREATIVE BRIEF
+            </a>
         </div>
     </div>
 </div>
