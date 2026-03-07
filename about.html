@@ -11,49 +11,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
     <style>
-        /* about-specific refinements – inherits all main styles, only additions */
+        /* Base Grid Layout */
         .about-grid {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
+            max-width: 1000px; /* Narrower for better readability like the reference */
+            margin: 4rem auto;
             padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.8rem;
-            color: #2a2a2a;
-            line-height: 1.7;
-        }
-        .about-text h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin: 2.5rem 0 1rem;
-            background: #000;
-            color: #fff;
-            display: inline-block;
-            padding: 0.2rem 1rem;
-        }
-        .about-text h2:first-of-type {
-            margin-top: 0;
         }
 
-        @media (max-width: 800px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .about-hero h1 {
-                font-size: 2.8rem;
-            }
+        /* The Black Mission Box (Yokogao Style) */
+        .style-block {
+            background: #000; /* Solid black background */
+            color: #fff; /* White text */
+            padding: 3.5rem;
+            margin-bottom: 2rem;
+            border-radius: 2px;
         }
-        @media (max-width: 500px) {
-            .about-hero h1 { font-size: 2.2rem; }
-            .team-list li { flex-wrap: wrap; gap: 0.2rem; }
-            .team-list .role { min-width: auto; }
+
+        .mission-text {
+            font-size: 1.4rem; /* Larger, impactful text */
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: #fff !important;
+        }
+
+        .mission-text:last-of-type {
+            margin-bottom: 0;
+        }
+
+        /* The Link Box (Contributors Style) */
+        .link-box-container {
+            margin-top: 2rem;
+        }
+
+        .about-btn {
+            display: inline-block;
+            border: 2px solid #000; /* Black border box */
+            padding: 0.6rem 1.2rem;
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase; /* Uppercase like 'CONTRIBUTORS' */
+            transition: all 0.2s ease;
+        }
+
+        .about-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 800px) {
+            .style-block {
+                padding: 2rem;
+            }
+            .mission-text {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
