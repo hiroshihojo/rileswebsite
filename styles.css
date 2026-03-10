@@ -577,10 +577,17 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 /* ==========================================================================
    9. MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
-@media (max-width: 900px) {
-    a.featured-post.primary { grid-template-columns: 1fr; }
-    .featured-post.primary .featured-content { padding: 1.5rem 2rem; }
-    .media-grid, .categories-grid { grid-template-columns: 1fr; }
+   @media (max-width: 900px) {
+    a.featured-post.primary { 
+        grid-template-columns: 1fr; 
+    }
+    .featured-post.primary .featured-content { 
+        padding: 1.5rem; 
+    }
+    .media-grid, 
+    .categories-grid { 
+        grid-template-columns: 1fr; 
+    }
     
     .article-header h1 {
         font-size: 2.2rem;
@@ -588,26 +595,84 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 }
 
 @media (max-width: 768px) {
-    .menu-toggle { display: block; }
-    .navbar { display: none; }
-    .navbar.active { display: block; }
-    .nav-menu { flex-direction: column; }
-    
-    .featured-post.secondary, .category-post {
-        flex-direction: row;
+    /* Header & Navigation */
+    .menu-toggle { 
+        display: block; 
+    }
+    .navbar { 
+        display: none; 
+    }
+    .navbar.active { 
+        display: block; 
+    }
+    .nav-menu { 
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
     }
     
-    .featured-post.secondary img, .category-post img {
-        width: 100px;
-        height: 80px;
+    /* Fix for secondary grid - keep as column on mobile */
+    .secondary-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
+    /* Fix for secondary posts - proper vertical stacking */
+    .featured-post.secondary {
+        display: block; /* Change from flex to block */
+    }
+    
+    .featured-post.secondary img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-bottom: 0.75rem;
+    }
+    
+    .featured-post.secondary .featured-content {
+        padding: 0;
+    }
+    
+    .featured-post.secondary h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    /* Category posts on mobile */
+    .category-post {
+        display: block;
+        margin-bottom: 1.5rem;
+    }
+    
+    .category-post img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Media grid spacing */
+    .media-grid {
+        gap: 2rem;
+    }
+    
+    /* Instagram embed container */
+    .instagram-embed-container {
+        min-height: 400px;
+    }
+    
+    /* Related articles */
     .related-grid {
         grid-template-columns: 1fr;
     }
     
+    /* Article page */
     .article-main {
         padding: 1rem;
+    }
+    
+    .article-header h1 {
+        font-size: 1.8rem;
     }
     
     .article-content {
@@ -616,17 +681,59 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
     
     .article-content .intro {
         font-size: 1.1rem;
+        padding-left: 1rem;
     }
     
     .article-content h2 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     
+    .article-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* About page */
     .style-block {
-        padding: 2rem;
+        padding: 1.5rem;
     }
     
     .mission-text {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    /* Banner */
+    .banner-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .banner-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .content-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .main-header {
+        padding: 1rem;
+    }
+    
+    .logo-image {
+        height: 30px;
+    }
+    
+    .featured-post.primary .featured-content {
+        padding: 1rem;
+    }
+    
+    .featured-post h2 {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
     }
 }
