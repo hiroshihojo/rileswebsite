@@ -246,10 +246,12 @@
             color: #555;
             line-height: 1.4;
             margin-bottom: 0.8rem;
-            /* Optional: Limit excerpt to 2 lines */
+            
+            /* The fix for the warning */
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
+            line-clamp: 2; /* Add this line */
             overflow: hidden;
         }
 
