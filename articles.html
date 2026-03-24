@@ -203,71 +203,79 @@
             margin-top: 0.25rem;
         }
 
-        /* ================================================================
-           ARTICLE LIST GRID (remaining articles below featured)
-           ================================================================ */
-        .editorial-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem 2rem;
-            margin-bottom: 5rem;
-        }
+    /* ================================================================
+   ARTICLE LIST GRID (4-Column Square Grid)
+   ================================================================ */
+   .editorial-list {
+    display: grid;
+    /* Forces 4 columns */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Tight gap for a cleaner, editorial look */
+    gap: 2rem 1.5rem; 
+    margin-bottom: 5rem;
+}
 
-        .editorial-card {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: inherit;
-            transition: opacity 0.2s;
-        }
+    .editorial-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease-in-out;
+}
 
-        .editorial-card:hover { opacity: 0.8; }
+    .editorial-card:hover { 
+    opacity: 0.7; 
+}
 
-        .editorial-card img {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            display: block;
-        }
+    .editorial-card img {
+    width: 100%;
+    /* Forces the image into a square shape */
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    display: block;
+    /* Optional: add a slight border or shadow if desired */
+    border: 1px solid #eee;
+}
 
-        .editorial-card .card-meta {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
+    .editorial-card .card-meta {
+    display: flex;
+    flex-direction: column; /* Stack date and category like Yokogao */
+    gap: 0.2rem;
+}
 
-        .editorial-card .card-date {
-            font-size: 0.75rem;
-            color: #999;
-            font-weight: 500;
-        }
+    .editorial-card .card-date {
+    font-size: 0.7rem;
+    color: #999;
+    font-weight: 500;
+    text-transform: uppercase;
+}
 
-        .editorial-card .card-cat {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #0432c7;
-            text-decoration: none;
-        }
+    .editorial-card .card-cat {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #0432c7;
+    text-decoration: none;
+}
 
-        .editorial-card .card-cat:hover { text-decoration: underline; }
+    .editorial-card h3 {
+    font-size: 1.1rem; /* Slightly larger for the 4-col layout */
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
+    /* Limits title to 2 lines to keep the grid even */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 
-        .editorial-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        .editorial-card .card-excerpt {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.55;
-        }
-
+/* Hide excerpt to maintain the minimalist Yokogao aesthetic in the grid */
+    .editorial-card .card-excerpt {
+    display: none;
+}
         /* ================================================================
            PER-CATEGORY SECTIONS
            ================================================================ */
@@ -442,42 +450,23 @@
         /* ================================================================
            RESPONSIVE
            ================================================================ */
-        @media (max-width: 900px) {
-            .editorial-featured {
-                grid-template-columns: 1fr;
-            }
+           @media (max-width: 1000px) {
+    .editorial-list {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    }
+}
 
-            .editorial-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
+@media (max-width: 768px) {
+    .editorial-list {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+    }
+}
 
-            .cat-featured {
-                grid-template-columns: 1fr;
-            }
-
-            .cat-sub-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .articles-hero h1 { font-size: 2.4rem; }
-
-            .articles-controls {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .articles-search-wrap input { width: 100%; }
-
-            .editorial-list {
-                grid-template-columns: 1fr;
-            }
-
-            .cat-sub-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+@media (max-width: 480px) {
+    .editorial-list {
+        grid-template-columns: 1fr; /* 1 column for small phones */
+    }
+}
     </style>
 </head>
 <body>
