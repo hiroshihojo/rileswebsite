@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Articles – Riles Magazine</title>
+    <link rel="icon" type="image/x-icon" href="RILESCOMBIMARK.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="RILESCOMBIMARK.ico" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ================================================================
+           ARTICLES PAGE — Yokogao-inspired layout, Riles palette
+           ================================================================ */
+
+        /* ── Page wrapper ── */
+        .articles-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        /* ── Page hero ── */
+        .articles-hero {
+            margin-bottom: 2.5rem;
+            border-bottom: 3px solid #000;
+            padding-bottom: 1.5rem;
+        }
+
+        .articles-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .articles-subtitle {
+            color: #555;
+            font-size: 1rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* ── Controls row: filters + search ── */
+        .articles-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            display: inline-block;
+            padding: 0.35rem 0.85rem;
+            border: 1.5px solid #000;
+            text-decoration: none;
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: background 0.15s, color 0.15s;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #0432c7;
+            color: #fff;
+            border-color: #0432c7;
+        }
+
+        .articles-search-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .articles-search-wrap input {
+            border: 1.5px solid #000;
+            padding: 0.4rem 1rem 0.4rem 2.2rem;
+            font-size: 0.85rem;
+            font-family: inherit;
+            outline: none;
+            width: 220px;
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+
+        .articles-search-wrap input:focus {
+            border-color: #0432c7;
+        }
+
+        .articles-search-wrap::before {
+            content: "⌕";
+            position: absolute;
+            left: 0.6rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+            color: #888;
+            pointer-events: none;
+        }
+
+        /* ── Section label ── */
+        .articles-section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* ================================================================
+           FEATURED ARTICLE (top of All Articles)
+           ================================================================ */
+        .editorial-featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: opacity 0.2s;
+        }
+
+        .editorial-featured:hover { opacity: 0.85; }
+
+        .editorial-featured-img img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .editorial-featured-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .editorial-featured-info .ed-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #aaa;
+        }
+
+        .editorial-featured-info .ed-cat {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            text-decoration: none;
+            transition: background 0.15s;
+            align-self: flex-start;
+        }
+
+        .editorial-featured-info .ed-cat:hover { background: #0432c7; }
+
+        .editorial-featured-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin: 0;
+        }
+
+        .editorial-featured-info .ed-excerpt {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .editorial-featured-info .ed-meta {
+            font-size: 0.8rem;
+            color: #999;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        /* ================================================================
+           ARTICLE LIST GRID (remaining articles below featured)
+           ================================================================ */
+        .editorial-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .editorial-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .editorial-card:hover { opacity: 0.8; }
+
+        .editorial-card img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .editorial-card .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .editorial-card .card-date {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .editorial-card .card-cat {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #0432c7;
+            text-decoration: none;
+        }
+
+        .editorial-card .card-cat:hover { text-decoration: underline; }
+
+        .editorial-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .editorial-card .card-excerpt {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.55;
+        }
+
+        /* ================================================================
+           PER-CATEGORY SECTIONS
+           ================================================================ */
+        .cat-section {
+            margin-bottom: 4.5rem;
+        }
+
+        .cat-section-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #000;
+        }
+
+        .cat-section-header h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .cat-section-header a.see-all {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0432c7;
+            text-decoration: none;
+            border-bottom: 1.5px solid #0432c7;
+            padding-bottom: 1px;
+            transition: color 0.15s;
+        }
+
+        .cat-section-header a.see-all:hover { color: #000; border-color: #000; }
+
+        /* Category featured (first article in each section) */
+        .cat-featured {
+            display: grid;
+            grid-template-columns: 55% 1fr;
+            gap: 2rem;
+            align-items: start;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: opacity 0.2s;
+        }
+
+        .cat-featured:hover { opacity: 0.8; }
+
+        .cat-featured img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cat-featured-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            padding-top: 0.25rem;
+        }
+
+        .cat-featured-info .cf-date {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .cat-featured-info h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .cat-featured-info .cf-excerpt {
+            font-size: 0.875rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .cat-featured-info .cf-author {
+            font-size: 0.78rem;
+            color: #999;
+            font-weight: 500;
+        }
+
+        .cf-read-more {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #0432c7;
+            text-decoration: none;
+            margin-top: 0.25rem;
+            border-bottom: 1.5px solid #0432c7;
+            padding-bottom: 1px;
+            transition: color 0.15s, border-color 0.15s;
+            align-self: flex-start;
+        }
+
+        .cf-read-more:hover { color: #000; border-color: #000; }
+
+        /* Smaller cards in category sub-grid */
+        .cat-sub-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .cat-sub-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .cat-sub-card:hover { opacity: 0.8; }
+
+        .cat-sub-card img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cat-sub-card .sub-date {
+            font-size: 0.72rem;
+            color: #aaa;
+        }
+
+        .cat-sub-card h4 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* Empty state */
+        .cat-empty {
+            background: #f5f5f5;
+            padding: 2rem 1.5rem;
+            color: #999;
+            font-size: 0.9rem;
+            font-style: italic;
+            font-weight: 500;
+            border-left: 3px solid #bfdb02;
+        }
+
+        /* Hidden cards for JS filtering */
+        .editorial-card.hidden,
+        .cat-section.hidden {
+            display: none;
+        }
+
+        /* ── No results message ── */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: #aaa;
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        /* ================================================================
+           RESPONSIVE
+           ================================================================ */
+        @media (max-width: 900px) {
+            .editorial-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cat-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .cat-sub-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .articles-hero h1 { font-size: 2.4rem; }
+
+            .articles-controls {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .articles-search-wrap input { width: 100%; }
+
+            .editorial-list {
+                grid-template-columns: 1fr;
+            }
+
+            .cat-sub-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+    <div class="header-top">
+        <div class="header-left"></div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="RILESWORDMARK.png" alt="Riles" class="logo-image">
+            </a>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="about.html">About</a></li>
+            <li class="dropdown">
+                <a href="#">Categories</a>
+                <ul class="dropdown-menu">
+                    <li><a href="index.html#radar">Radar</a></li>
+                    <li><a href="index.html#culture">Culture</a></li>
+                    <li><a href="index.html#art-design">Art & Design</a></li>
+                    <li><a href="index.html#music-film">Music & Film</a></li>
+                    <li><a href="index.html#fashion">Fashion</a></li>
+                    <li><a href="index.html#gaming">Gaming</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== MAIN ===== -->
+<main class="articles-page">
+
+    <!-- PAGE HERO -->
+    <div class="articles-hero">
+        <h1><strong>Articles</strong></h1>
+        <p class="articles-subtitle">Spotlight on Filipino creatives, stories, and stirs.</p>
+    </div>
+
+    <!-- CONTROLS: FILTERS + SEARCH -->
+    <div class="articles-controls">
+        <div class="category-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="radar">Radar</button>
+            <button class="filter-btn" data-filter="culture">Culture</button>
+            <button class="filter-btn" data-filter="art-design">Art & Design</button>
+            <button class="filter-btn" data-filter="music-film">Music & Film</button>
+            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="gaming">Gaming</button>
+        </div>
+        <div class="articles-search-wrap">
+            <input type="text" id="articleSearch" placeholder="Search articles…" aria-label="Search articles">
+        </div>
+    </div>
+
+    <!-- ===================================================
+         ALL ARTICLES
+         =================================================== -->
+    <section id="all-articles">
+        <p class="articles-section-label">All Articles</p>
+
+        <!-- FEATURED (latest article) -->
+        <a href="article-bayanihan.html" class="editorial-featured" data-cats="radar" data-title="bayanihan women nation togetherness">
+            <div class="editorial-featured-img">
+                <img src="IMAGES/RADAR/LARIENMAR24.png" alt="Bayanihan">
+            </div>
+            <div class="editorial-featured-info">
+                <span class="ed-label">Featured</span>
+                <a href="index.html#radar" class="ed-cat" onclick="event.stopPropagation()">Radar</a>
+                <h2>Bayanihan: Women, the Nation, and Togetherness</h2>
+                <p class="ed-excerpt">Women don't just perform on stages, they build them, too.</p>
+                <p class="ed-meta">Nina Larien S. De Luna · March 24, 2026</p>
+            </div>
+        </a>
+
+        <!-- ARTICLE GRID -->
+        <div class="editorial-list" id="editorialList">
+
+            <a href="article-balut.html" class="editorial-card" data-cats="culture" data-title="balut food culture duck egg">
+                <img src="IMAGES/CULTURE/BALUT/HOJOMARCH6.png" alt="Balut">
+                <div class="card-meta">
+                    <span class="card-date">Mar 6, 2026</span>
+                    <a href="index.html#culture" class="card-cat" onclick="event.stopPropagation()">Culture</a>
+                </div>
+                <h3>Balut</h3>
+                <p class="card-excerpt">Beneath the shell of revulsion is the yolk of history that it has.</p>
+            </a>
+
+            <a href="article-filipiniana.html" class="editorial-card" data-cats="culture" data-title="filipiniana tradition fashion baro">
+                <img src="IMAGES/CULTURE/LARIENFEB7.png" alt="Filipiniana">
+                <div class="card-meta">
+                    <span class="card-date">Feb 7, 2026</span>
+                    <a href="index.html#culture" class="card-cat" onclick="event.stopPropagation()">Culture</a>
+                </div>
+                <h3>Reject modernity, embrace tradition</h3>
+                <p class="card-excerpt">Being proud of our traditional wear means being proud of our history.</p>
+            </a>
+
+            <a href="article-TrenKo.html" class="editorial-card" data-cats="radar" data-title="trenko commute train metro manila app">
+                <img src="IMAGES/RADAR/HOJOJAN28.png" alt="TrenKo">
+                <div class="card-meta">
+                    <span class="card-date">Jan 28, 2026</span>
+                    <a href="index.html#radar" class="card-cat" onclick="event.stopPropagation()">Radar</a>
+                </div>
+                <h3>TrenKo, Metro Manila's Real-Time Train Guide for Everyday Commuters</h3>
+                <p class="card-excerpt">Enrico's daily commute struggles are exactly how TrenKo came to be.</p>
+            </a>
+
+            <a href="article-dreadedhut.html" class="editorial-card" data-cats="gaming" data-title="dreaded hut horror game indie filipino folklore">
+                <img src="IMAGES/GAMING/HOJOJAN29.png" alt="The Dreaded Hut">
+                <div class="card-meta">
+                    <span class="card-date">Jan 28, 2026</span>
+                    <a href="index.html#gaming" class="card-cat" onclick="event.stopPropagation()">Gaming</a>
+                </div>
+                <h3>The Dreaded Hut</h3>
+                <p class="card-excerpt">Survival Horror game inspired by Filipino folklore and myth.</p>
+            </a>
+
+        </div>
+
+        <p class="no-results" id="noResults">No articles found. Try a different search or filter.</p>
+    </section>
+
+
+    <!-- ===================================================
+         PER-CATEGORY SECTIONS
+         =================================================== -->
+
+    <!-- RADAR -->
+    <section class="cat-section" id="cat-radar" data-category="radar">
+        <div class="cat-section-header">
+            <h2>Radar</h2>
+            <a href="#cat-radar" class="see-all">See all →</a>
+        </div>
+
+        <!-- Featured article in category -->
+        <a href="article-bayanihan.html" class="cat-featured">
+            <img src="IMAGES/RADAR/LARIENMAR24.png" alt="Bayanihan">
+            <div class="cat-featured-info">
+                <span class="cf-date">March 24, 2026</span>
+                <h3>Bayanihan: Women, the Nation, and Togetherness</h3>
+                <p class="cf-excerpt">Women don't just perform on stages, they build them, too. A look at the women behind Philippine folk dance and nation-building.</p>
+                <span class="cf-author">Nina Larien S. De Luna</span>
+                <span class="cf-read-more">Read More →</span>
+            </div>
+        </a>
+
+        <!-- Sub-grid: additional articles in category -->
+        <div class="cat-sub-grid">
+            <a href="article-TrenKo.html" class="cat-sub-card">
+                <img src="IMAGES/RADAR/HOJOJAN28.png" alt="TrenKo">
+                <span class="sub-date">Jan 28, 2026</span>
+                <h4>TrenKo, Metro Manila's Real-Time Train Guide for Everyday Commuters</h4>
+            </a>
+        </div>
+    </section>
+
+    <!-- CULTURE -->
+    <section class="cat-section" id="cat-culture" data-category="culture">
+        <div class="cat-section-header">
+            <h2>Culture</h2>
+            <a href="#cat-culture" class="see-all">See all →</a>
+        </div>
+
+        <a href="article-filipiniana.html" class="cat-featured">
+            <img src="IMAGES/CULTURE/LARIENFEB7.png" alt="Filipiniana">
+            <div class="cat-featured-info">
+                <span class="cf-date">February 7, 2026</span>
+                <h3>Reject modernity, embrace tradition</h3>
+                <p class="cf-excerpt">The world of the Filipiniana is vast, with different variants that tell the story of Filipino identity through centuries of change.</p>
+                <span class="cf-author">Nina Larien De Luna</span>
+                <span class="cf-read-more">Read More →</span>
+            </div>
+        </a>
+
+        <div class="cat-sub-grid">
+            <a href="article-balut.html" class="cat-sub-card">
+                <img src="IMAGES/CULTURE/BALUT/HOJOMARCH6.png" alt="Balut">
+                <span class="sub-date">Mar 6, 2026</span>
+                <h4>Balut</h4>
+            </a>
+        </div>
+    </section>
+
+    <!-- ART & DESIGN -->
+    <section class="cat-section" id="cat-art-design" data-category="art-design">
+        <div class="cat-section-header">
+            <h2>Art & Design</h2>
+            <a href="#cat-art-design" class="see-all">See all →</a>
+        </div>
+        <div class="cat-empty">Nothing here yet — check back soon.</div>
+    </section>
+
+    <!-- MUSIC & FILM -->
+    <section class="cat-section" id="cat-music-film" data-category="music-film">
+        <div class="cat-section-header">
+            <h2>Music & Film</h2>
+            <a href="#cat-music-film" class="see-all">See all →</a>
+        </div>
+        <div class="cat-empty">Nothing here yet — check back soon.</div>
+    </section>
+
+    <!-- FASHION -->
+    <section class="cat-section" id="cat-fashion" data-category="fashion">
+        <div class="cat-section-header">
+            <h2>Fashion</h2>
+            <a href="#cat-fashion" class="see-all">See all →</a>
+        </div>
+        <div class="cat-empty">Nothing here yet — check back soon.</div>
+    </section>
+
+    <!-- GAMING -->
+    <section class="cat-section" id="cat-gaming" data-category="gaming">
+        <div class="cat-section-header">
+            <h2>Gaming</h2>
+            <a href="#cat-gaming" class="see-all">See all →</a>
+        </div>
+
+        <a href="article-dreadedhut.html" class="cat-featured">
+            <img src="IMAGES/GAMING/HOJOJAN29.png" alt="The Dreaded Hut">
+            <div class="cat-featured-info">
+                <span class="cf-date">January 28, 2026</span>
+                <h3>The Dreaded Hut</h3>
+                <p class="cf-excerpt">An action-horror game set in a rural Filipino village destroyed in a flood, pulling from local myths, symbols, and rituals.</p>
+                <span class="cf-author">Hiroshi Hojo</span>
+                <span class="cf-read-more">Read More →</span>
+            </div>
+        </a>
+    </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <p>© 2026 Riles Magazine. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    /* ── Category filter buttons ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const allCards   = document.querySelectorAll('.editorial-card');
+    const catSections = document.querySelectorAll('.cat-section');
+    const featured   = document.querySelector('.editorial-featured');
+    const noResults  = document.getElementById('noResults');
+
+    function applyFilters() {
+        const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+        const query = document.getElementById('articleSearch').value.toLowerCase().trim();
+
+        let visibleCount = 0;
+
+        // Filter editorial cards (the grid)
+        allCards.forEach(card => {
+            const cats  = card.dataset.cats || '';
+            const title = card.dataset.title || '';
+            const catMatch  = activeFilter === 'all' || cats.includes(activeFilter);
+            const textMatch = !query || title.includes(query);
+
+            if (catMatch && textMatch) {
+                card.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Featured article
+        if (featured) {
+            const fcats  = featured.dataset.cats || '';
+            const ftitle = featured.dataset.title || '';
+            const catMatch  = activeFilter === 'all' || fcats.includes(activeFilter);
+            const textMatch = !query || ftitle.includes(query);
+            featured.style.display = (catMatch && textMatch) ? '' : 'none';
+            if (catMatch && textMatch) visibleCount++;
+        }
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+
+        // Filter per-category sections
+        catSections.forEach(section => {
+            const scat = section.dataset.category || '';
+            const catMatch = activeFilter === 'all' || scat === activeFilter;
+            section.style.display = catMatch ? '' : 'none';
+        });
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            applyFilters();
+        });
+    });
+
+    document.getElementById('articleSearch').addEventListener('input', applyFilters);
+</script>
+</body>
+</html>
