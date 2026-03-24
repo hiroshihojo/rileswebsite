@@ -208,8 +208,8 @@
            ================================================================ */
         .editorial-list {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
-            gap: 3rem 1.5rem; /* Larger vertical gap for a premium feel */
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem 1.5rem; 
             margin-bottom: 5rem;
         }
 
@@ -227,7 +227,7 @@
 
         .editorial-card img {
             width: 100%;
-            aspect-ratio: 1 / 1; /* Perfect squares */
+            aspect-ratio: 1 / 1; 
             object-fit: cover;
             display: block;
             margin-bottom: 1rem;
@@ -247,11 +247,11 @@
             line-height: 1.4;
             margin-bottom: 0.8rem;
             
-            /* The fix for the warning */
+            
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
-            line-clamp: 2; /* Add this line */
+            line-clamp: 2; 
             overflow: hidden;
         }
 
@@ -265,11 +265,10 @@
             font-weight: 500;
         }
 
-        /* Removing hyperlink styling from category */
         .editorial-card .card-cat {
             color: #888;
             text-decoration: none;
-            pointer-events: none; /* Disables clicking */
+            pointer-events: none;
         }
 
         .editorial-card .card-meta span::after {
