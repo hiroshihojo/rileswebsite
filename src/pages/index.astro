@@ -9,10 +9,16 @@ const bySlug = (slug: string) => allArticles.find((a) => a.id === slug)!;
 const primary = bySlug('bayanihan');
 const secondary = [bySlug('filipiniana'), bySlug('trenko')];
 
-// Category groupings for the categories grid
-const radar = allArticles.filter((a) => a.data.category === 'Radar');
-const culture = allArticles.filter((a) => a.data.category === 'Culture');
-const gaming = allArticles.filter((a) => a.data.category === 'Gaming');
+// All possible categories, in display order. Only ones with at least
+// one article will actually render below.
+const allCategories = ['Radar', 'Culture', 'Art & Design', 'Music & Film', 'Fashion', 'Gaming'];
+const categoryGroups = allCategories
+  .map((label) => ({
+    label,
+    id: label.toLowerCase().replace(/\s*&\s*/g, '-').replace(/\s+/g, '-'),
+    posts: allArticles.filter((a) => a.data.category === label),
+  }))
+  .filter((group) => group.posts.length > 0);
 ---
 
 <BaseLayout title="Riles Magazine" active="home">
@@ -71,57 +77,20 @@ const gaming = allArticles.filter((a) => a.data.category === 'Gaming');
             </div>
 
             <!-- CATEGORIES GRID -->
-            <div class="categories-grid">
-                <section class="category-section" id="radar">
-                    <h2 class="section-title">Radar</h2>
-                    <div class="category-grid">
-                        {radar.map((post) => (
-                            <a href={`/articles/${post.id}`} class="category-post">
-                                <img src={post.data.image} alt={post.data.imageAlt}>
-                                <h3>{post.data.title}</h3>
-                            </a>
-                        ))}
-                    </div>
-                </section>
-
-                <section class="category-section" id="culture">
-                    <h2 class="section-title">Culture</h2>
-                    <div class="category-grid">
-                        {culture.map((post) => (
-                            <a href={`/articles/${post.id}`} class="category-post">
-                                <img src={post.data.image} alt={post.data.imageAlt}>
-                                <h3>{post.data.title}</h3>
-                            </a>
-                        ))}
-                    </div>
-                </section>
-
-                <section class="category-section" id="art-design">
-                    <h2 class="section-title">Art & Design</h2>
-                    <div class="category-grid"></div>
-                </section>
-
-                <section class="category-section" id="music-film">
-                    <h2 class="section-title">Music & Film</h2>
-                    <div class="category-grid"></div>
-                </section>
-
-                <section class="category-section" id="fashion">
-                    <h2 class="section-title">Fashion</h2>
-                    <div class="category-grid"></div>
-                </section>
-
-                <section class="category-section" id="gaming">
-                    <h2 class="section-title">Gaming</h2>
-                    <div class="category-grid">
-                        {gaming.map((post) => (
-                            <a href={`/articles/${post.id}`} class="category-post">
-                                <img src={post.data.image} alt={post.data.imageAlt}>
-                                <h3>{post.data.title}</h3>
-                            </a>
-                        ))}
-                    </div>
-                </section>
+            <div class="categories-grid" data-count={categoryGroups.length}>
+                {categoryGroups.map((group) => (
+                    <section class="category-section" id={group.id}>
+                        <h2 class="section-title">{group.label}</h2>
+                        <div class="category-grid">
+                            {group.posts.map((post) => (
+                                <a href={`/articles/${post.id}`} class="category-post">
+                                    <img src={post.data.image} alt={post.data.imageAlt}>
+                                    <h3>{post.data.title}</h3>
+                                </a>
+                            ))}
+                        </div>
+                    </section>
+                ))}
             </div>
         </section>
     </main>

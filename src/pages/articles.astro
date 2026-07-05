@@ -32,7 +32,7 @@ const articlesByCategory = (id: string) =>
         <div class="articles-controls">
             <div class="category-filters">
                 <button class="filter-btn active" data-filter="all">All</button>
-                {categories.map((c) => (
+                {categories.filter((c) => articlesByCategory(c.id).length > 0).map((c) => (
                     <button class="filter-btn" data-filter={c.id}>{c.label}</button>
                 ))}
             </div>
@@ -67,6 +67,7 @@ const articlesByCategory = (id: string) =>
 
         {categories.map((c) => {
             const items = articlesByCategory(c.id);
+            if (items.length === 0) return null;
             return (
                 <section class="cat-section" id={`cat-${c.id}`} data-category={c.id}>
                     <div class="cat-section-header">
@@ -74,19 +75,15 @@ const articlesByCategory = (id: string) =>
                         <a href={`#cat-${c.id}`} class="see-all">See all →</a>
                     </div>
 
-                    {items.length > 0 ? (
-                        items.map((a) => (
-                            <div class="cat-sub-grid">
-                                <a href={`/articles/${a.id}`} class="cat-sub-card">
-                                    <img src={a.data.image} alt={a.data.imageAlt}>
-                                    <span class="sub-date">{a.data.date}</span>
-                                    <h4>{a.data.title}</h4>
-                                </a>
-                            </div>
-                        ))
-                    ) : (
-                        <div class="cat-empty">Nothing here yet — check back soon.</div>
-                    )}
+                    {items.map((a) => (
+                        <div class="cat-sub-grid">
+                            <a href={`/articles/${a.id}`} class="cat-sub-card">
+                                <img src={a.data.image} alt={a.data.imageAlt}>
+                                <span class="sub-date">{a.data.date}</span>
+                                <h4>{a.data.title}</h4>
+                            </a>
+                        </div>
+                    ))}
                 </section>
             );
         })}
