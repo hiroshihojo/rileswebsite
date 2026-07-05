@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'articles'>;
+  related: CollectionEntry<'articles'>[];
+}
+
+const { entry, related } = Astro.props;
+const { title, category, author, date, image, imageAlt, intro, tags } = entry.data;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${title} · Riles Magazine`} active="articles">
+    <main class="article-main">
+        <a href="/articles" class="back-to-home">← BACK TO HOME</a>
+
+        <article class="full-article">
+            <header class="article-header">
+                <span class="article-category">{category.toUpperCase()}</span>
+                <h1>{title}</h1>
+                <div class="article-meta">
+                    <span>By {author}</span>
+                    <span>·</span>
+                    <span>{date}</span>
+                    <span>·</span>
+                </div>
+            </header>
+
+            <img src={image} alt={imageAlt} class="article-hero-image">
+
+            <div class="article-content">
+                <p class="intro"><strong>{intro}</strong></p>
+                <Content />
+            </div>
+
+            <footer class="article-footer">
+                <p><strong>Tags:</strong>
+                    {tags.map((tag) => <a href="#">{tag}</a>).reduce((prev, curr) => [prev, ', ', curr] as any)}
+                </p>
+                <p><strong>Socials:</strong>
+                    <a href="#">Facebook</a> |
+                    <a href="https://www.instagram.com/rilesmag/">Instagram</a>
+                </p>
+            </footer>
+        </article>
+
+        {related.length > 0 && (
+            <div class="related-articles">
+                <h3>More from {category}</h3>
+                <div class="related-grid">
+                    {related.map((rel) => (
+                        <a href={`/articles/${rel.id}`} class="related-article">
+                            <img src={rel.data.image} alt={rel.data.imageAlt}>
+                            <h4>{rel.data.title}</h4>
+                            <span class="meta">{rel.data.date}</span>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        )}
+    </main>
+</BaseLayout>
