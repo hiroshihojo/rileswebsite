@@ -1,6 +1,7 @@
 ---
 title: "Reject modernity, embrace tradition"
 category: "Culture"
+subcategory: "Lines"
 author: "Nina Larien De Luna"
 date: "February 7, 2026"
 sortDate: 2026-02-07

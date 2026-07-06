@@ -261,6 +261,23 @@ a.featured-post.primary::after {
     margin-top: 40px;
 }
 
+.subcategory-block {
+    margin-bottom: 1.75rem;
+}
+
+.subcategory-block:last-child {
+    margin-bottom: 0;
+}
+
+.subcategory-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0432c7;
+    margin-bottom: 0.9rem;
+}
+
 .featured-post.secondary, .category-post {
     display: flex;
     flex-direction: column;
@@ -323,6 +340,42 @@ a.featured-post.primary::after {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem 1rem;
+}
+
+.photo-series-main {
+    max-width: 1200px;
+}
+
+.photo-series-pill {
+    display: inline-block;
+    background: #bfdb02;
+    color: #000;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.9rem;
+    margin-left: 0.75rem;
+}
+
+/* Photo-series body: images run large and close together, with minimal
+   text. Write a plain italic paragraph right after an image to caption it. */
+.article-content.photo-series img {
+    width: 100%;
+    margin: 2.5rem 0 0;
+}
+
+.article-content.photo-series p:has(> em:only-child) {
+    text-align: center;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #767676;
+    margin: 0.6rem 0 0;
+}
+
+.article-content.photo-series p:not(:has(> em:only-child)) {
+    max-width: 640px;
+    margin: 2.5rem auto;
 }
 
 .back-to-home {
@@ -450,7 +503,7 @@ a.featured-post.primary::after {
     line-height: 1;
 }
 
-.article-content p:nth-of-type(2)::first-letter {
+.article-content:not(.photo-series) p:nth-of-type(2)::first-letter {
     font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
     font-size: 3.8rem;
     font-weight: 800;

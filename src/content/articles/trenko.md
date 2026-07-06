@@ -1,6 +1,7 @@
 ---
 title: "TrenKo, Metro Manila's Real-Time Train Guide for Everyday Commuters"
 category: "Radar"
+subcategory: "Station"
 author: "Hiroshi Hojo"
 date: "January 28, 2026"
 sortDate: 2026-01-28

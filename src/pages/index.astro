@@ -1,30 +1,40 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { categories } from '../taxonomy';
 
 const allArticles = await getCollection('articles');
-const bySlug = (slug: string) => allArticles.find((a) => a.id === slug)!;
+const byRecency = (a: (typeof allArticles)[number], b: (typeof allArticles)[number]) =>
+  b.data.sortDate.valueOf() - a.data.sortDate.valueOf();
 
-// Primary + secondary featured posts (curated, mirrors original design)
-const primary = bySlug('bayanihan');
-const secondary = [bySlug('filipiniana'), bySlug('trenko')];
+// Hero: whichever article has `featured: true` in its frontmatter. If none
+// is marked, fall back to the most recently published article. This means
+// publishing a new article with `featured: true` automatically replaces
+// the homepage hero — no other file needs to change.
+const sortedByRecency = [...allArticles].sort(byRecency);
+const primary = sortedByRecency.find((a) => a.data.featured) ?? sortedByRecency[0];
+const secondary = sortedByRecency.filter((a) => a.id !== primary.id).slice(0, 2);
 
-// All possible categories, in display order. Only ones with at least
-// one article will actually render below.
-const allCategories = ['Radar', 'Culture', 'Art & Design', 'Music & Film', 'Fashion', 'Gaming'];
-const categoryGroups = allCategories
-  .map((label) => ({
-    label,
-    id: label.toLowerCase().replace(/\s*&\s*/g, '-').replace(/\s+/g, '-'),
-    posts: allArticles.filter((a) => a.data.category === label),
-  }))
+// Group remaining category sections by category -> subcategory, using the
+// shared taxonomy so labels/order/ids stay consistent across the site.
+const categoryGroups = categories
+  .map((cat) => {
+    const posts = allArticles.filter((a) => a.data.category === cat.label);
+    const subgroups = cat.subcategories
+      .map((sub) => ({ label: sub, posts: posts.filter((p) => p.data.subcategory === sub) }))
+      .filter((sg) => sg.posts.length > 0);
+    // Posts in this category with no matching/declared subcategory
+    const declaredSubs = new Set(cat.subcategories);
+    const ungrouped = posts.filter((p) => !p.data.subcategory || !declaredSubs.has(p.data.subcategory));
+    return { ...cat, posts, subgroups, ungrouped };
+  })
   .filter((group) => group.posts.length > 0);
 ---
 
 <BaseLayout title="Riles Magazine" active="home">
     <main class="content-wrapper">
         <section class="featured-grid">
-            <!-- Primary Featured Post -->
+            <!-- Primary Featured Post (hero) -->
             <a href={`/articles/${primary.id}`} class="featured-post primary" style="text-decoration: none; color: inherit;">
                 <img src={primary.data.image} alt={primary.data.imageAlt}>
                 <div class="featured-content">
@@ -81,14 +91,31 @@ const categoryGroups = allCategories
                 {categoryGroups.map((group) => (
                     <section class="category-section" id={group.id}>
                         <h2 class="section-title">{group.label}</h2>
-                        <div class="category-grid">
-                            {group.posts.map((post) => (
-                                <a href={`/articles/${post.id}`} class="category-post">
-                                    <img src={post.data.image} alt={post.data.imageAlt}>
-                                    <h3>{post.data.title}</h3>
-                                </a>
-                            ))}
-                        </div>
+
+                        {group.subgroups.map((sg) => (
+                            <div class="subcategory-block">
+                                <h3 class="subcategory-title">{sg.label}</h3>
+                                <div class="category-grid">
+                                    {sg.posts.map((post) => (
+                                        <a href={`/articles/${post.id}`} class="category-post">
+                                            <img src={post.data.image} alt={post.data.imageAlt}>
+                                            <h3>{post.data.title}</h3>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+
+                        {group.ungrouped.length > 0 && (
+                            <div class="category-grid">
+                                {group.ungrouped.map((post) => (
+                                    <a href={`/articles/${post.id}`} class="category-post">
+                                        <img src={post.data.image} alt={post.data.imageAlt}>
+                                        <h3>{post.data.title}</h3>
+                                    </a>
+                                ))}
+                            </div>
+                        )}
                     </section>
                 ))}
             </div>
@@ -104,3 +131,4 @@ const categoryGroups = allCategories
         </div>
     </section>
 </BaseLayout>
+

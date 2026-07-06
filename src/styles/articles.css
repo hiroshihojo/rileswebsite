@@ -308,6 +308,19 @@
 
         .cat-section-header a.see-all:hover { color: #000; border-color: #000; }
 
+        .cat-subcategory-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #0432c7;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .cat-section > .cat-subcategory-label:first-of-type {
+            margin-top: 0;
+        }
+
         /* Category featured (first article in each section) */
         .cat-featured {
             display: grid;

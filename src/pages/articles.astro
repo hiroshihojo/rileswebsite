@@ -2,23 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/articles.css';
 import { getCollection } from 'astro:content';
+import { categories, categoryIdFor } from '../taxonomy';
 
 const allArticles = (await getCollection('articles')).sort(
   (a, b) => b.data.sortDate.valueOf() - a.data.sortDate.valueOf()
 );
 
-const categories = [
-  { id: 'radar', label: 'Radar' },
-  { id: 'culture', label: 'Culture' },
-  { id: 'art-design', label: 'Art & Design' },
-  { id: 'music-film', label: 'Music & Film' },
-  { id: 'fashion', label: 'Fashion' },
-  { id: 'gaming', label: 'Gaming' },
-];
-
-const bySlugId = (label: string) => label.toLowerCase().replace(/\s*&\s*/g, '-').replace(/\s+/g, '-');
 const articlesByCategory = (id: string) =>
-  allArticles.filter((a) => bySlugId(a.data.category) === id);
+  allArticles.filter((a) => categoryIdFor(a.data.category) === id);
 ---
 
 <BaseLayout title="Articles – Riles Magazine" active="articles">
@@ -48,7 +39,7 @@ const articlesByCategory = (id: string) =>
                     <a
                         href={`/articles/${a.id}`}
                         class="editorial-card"
-                        data-cats={bySlugId(a.data.category)}
+                        data-cats={categoryIdFor(a.data.category)}
                         data-title={a.data.title.toLowerCase()}
                     >
                         <img src={a.data.image} alt={a.data.imageAlt}>
@@ -68,6 +59,11 @@ const articlesByCategory = (id: string) =>
         {categories.map((c) => {
             const items = articlesByCategory(c.id);
             if (items.length === 0) return null;
+            const subgroups = c.subcategories
+              .map((sub) => ({ label: sub, posts: items.filter((a) => a.data.subcategory === sub) }))
+              .filter((sg) => sg.posts.length > 0);
+            const declaredSubs = new Set(c.subcategories);
+            const ungrouped = items.filter((a) => !a.data.subcategory || !declaredSubs.has(a.data.subcategory));
             return (
                 <section class="cat-section" id={`cat-${c.id}`} data-category={c.id}>
                     <div class="cat-section-header">
@@ -75,7 +71,22 @@ const articlesByCategory = (id: string) =>
                         <a href={`#cat-${c.id}`} class="see-all">See all →</a>
                     </div>
 
-                    {items.map((a) => (
+                    {subgroups.map((sg) => (
+                        <>
+                            <p class="cat-subcategory-label">{sg.label}</p>
+                            {sg.posts.map((a) => (
+                                <div class="cat-sub-grid">
+                                    <a href={`/articles/${a.id}`} class="cat-sub-card">
+                                        <img src={a.data.image} alt={a.data.imageAlt}>
+                                        <span class="sub-date">{a.data.date}</span>
+                                        <h4>{a.data.title}</h4>
+                                    </a>
+                                </div>
+                            ))}
+                        </>
+                    ))}
+
+                    {ungrouped.map((a) => (
                         <div class="cat-sub-grid">
                             <a href={`/articles/${a.id}`} class="cat-sub-card">
                                 <img src={a.data.image} alt={a.data.imageAlt}>

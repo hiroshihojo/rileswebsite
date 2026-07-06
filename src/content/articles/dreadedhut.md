@@ -1,6 +1,7 @@
 ---
 title: "The Dreaded Hut"
-category: "Gaming"
+category: "Media"
+subcategory: "Radio"
 author: "Hiroshi Hojo"
 date: "January 29, 2026"
 sortDate: 2026-01-29

@@ -1,6 +1,7 @@
 ---
 title: "Balut"
 category: "Culture"
+subcategory: "Lines"
 author: "Hiroshi Hojo"
 date: "March 6, 2026"
 sortDate: 2026-03-06
