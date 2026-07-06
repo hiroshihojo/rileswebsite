@@ -5,7 +5,7 @@ subcategory: "Radio"
 author: "Hiroshi Hojo"
 date: "January 29, 2026"
 sortDate: 2026-01-29
-image: "/IMAGES/GAMING/HOJOJAN29.png"
+image: "/IMAGES/MEDIA/HOJOJAN29.png"
 imageAlt: "in game screenshot"
 excerpt: "Survival Horror game inspired by Filipino folklore and myth."
 intro: "Survival Horror game inspired by Filipino folklore and myth."
