@@ -14,6 +14,17 @@ body {
     background: #ffffff;
 }
 
+/* Display grotesque for headlines — Hanken Grotesk (free Neue Haas
+   Grotesk-style alternative) pairs with Inter body copy via weight/scale
+   contrast rather than a serif switch. Applied to h1/h2/h3 by default. */
+h1, h2, h3,
+.display-font {
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -165,36 +176,64 @@ img {
     font-weight: bold;
 }
 
-/* Primary Post (Clickable Block) */
+/* Primary Post (Clickable Block) — full-bleed hero with overlay */
 a.featured-post.primary {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: center;
-    background: #0432c7;
+    position: relative;
+    display: block;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease;
+    min-height: 520px;
 }
 
 a.featured-post.primary:hover { transform: translateY(-5px); }
 
 .featured-post.primary img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    aspect-ratio: 4/3;
+    height: 100%;
+    aspect-ratio: auto;
     object-fit: cover;
-    transition: transform 0.5s;
+    transition: transform 0.6s ease;
 }
 
-a.featured-post.primary:hover img { transform: scale(1.05); }
+a.featured-post.primary:hover img { transform: scale(1.06); }
 
-.featured-post.primary .featured-content { padding: 2rem 2rem 2rem 0; }
+a.featured-post.primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0) 75%);
+    pointer-events: none;
+}
+
+.featured-post.primary .featured-content {
+    position: relative;
+    z-index: 1;
+    padding: 3rem 2.5rem 2.5rem;
+    max-width: 640px;
+}
+
+.featured-post.primary .category-tag {
+    background: #bfdb02;
+    color: #000;
+}
+
+.featured-post.primary h2 {
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-style: normal;
+    font-weight: 800;
+}
+
+.featured-post.primary .meta {
+    color: rgba(255,255,255,0.75);
+}
 
 .featured-post h2 {
-    font-size: 2.2rem;
     color: #ffffff;
-    line-height: 1.2;
+    line-height: 1.1;
     margin-bottom: 1rem;
     letter-spacing: -0.02em;
     font-weight: 700;
@@ -202,10 +241,11 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 
 .excerpt {
     color: #ffffff;
-    font-size: 0.85rem;
+    font-size: 1.05rem;
     display: flex;
     gap: 0.5rem;
     font-weight: 500;
+    margin-bottom: 0.75rem;
 }
 
 .secondary-grid {
@@ -227,10 +267,14 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
     gap: 1rem;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-radius: 2px;
 }
 
-.featured-post.secondary:hover, .category-post:hover { transform: translateY(-4px); }
+.featured-post.secondary:hover, .category-post:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
 
 .featured-post.secondary img, .category-post img {
     aspect-ratio: 16/9;
@@ -238,9 +282,10 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 }
 
 .featured-post.secondary h3, .category-post h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    line-height: 1.4;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    font-style: normal;
 }
 
 /* ==========================================================================
@@ -254,14 +299,17 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 }
 
 .section-title {
-    background: #000;
-    color: #fff;
-    font-size: 2rem;
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+    font-style: normal;
     font-weight: 800;
-    padding: 0.6rem 1rem;
+    font-size: 2rem;
+    color: #1a1a1a;
+    padding-bottom: 0.5rem;
     margin-bottom: 1.5rem;
     display: inline-block;
-    text-transform: uppercase;
+    border-bottom: 3px solid #0432c7;
+    text-transform: none;
+    letter-spacing: -0.02em;
 }
 
 .spotify-embed-container iframe {
@@ -302,10 +350,11 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 }
 
 .article-header h1 {
-    font-size: 2.8rem;
-    line-height: 1.2;
-    margin: 0.5rem 0 1rem;
-    font-weight: 700;
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    margin: 0.75rem 0 1rem;
+    font-weight: 800;
+    font-style: normal;
     letter-spacing: -0.02em;
 }
 
@@ -373,14 +422,42 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
 }
 
 .article-content blockquote {
-    border-left: 4px solid #0432c7;
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
-    color: #4a4a4a;
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 1.7;
+    position: relative;
+    border-left: none;
+    background: #f4f4f2;
+    padding: 2rem 2.5rem 2rem 3.5rem;
+    margin: 2.5rem 0;
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 1.35rem;
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    border-radius: 2px;
+}
+
+.article-content blockquote::before {
+    content: "\201C";
+    position: absolute;
+    top: 0.25rem;
+    left: 1rem;
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: normal;
+    color: #0432c7;
+    line-height: 1;
+}
+
+.article-content p:nth-of-type(2)::first-letter {
+    font-family: 'Hanken Grotesk', 'Inter', system-ui, sans-serif;
+    font-size: 3.8rem;
+    font-weight: 800;
+    float: left;
+    line-height: 0.85;
+    margin: 0.1rem 0.5rem 0 0;
+    color: #0432c7;
 }
 
 .article-footer {
@@ -578,8 +655,8 @@ a.featured-post.primary:hover img { transform: scale(1.05); }
    9. MEDIA QUERIES (RESPONSIVE)
    ========================================================================== */
    @media (max-width: 900px) {
-    a.featured-post.primary { 
-        grid-template-columns: 1fr; 
+    a.featured-post.primary {
+        min-height: 380px;
     }
     .featured-post.primary .featured-content { 
         padding: 1.5rem; 
